@@ -7,17 +7,7 @@ Kazan creates rails project and setups predefined gems and tools. Inspired by [t
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'kazan'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install gem:
 
     $ gem install kazan
     
