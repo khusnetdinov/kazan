@@ -1,11 +1,21 @@
 require 'spec_helper'
 
 describe Kazan do
-  it 'has a version number' do
-    expect(Kazan::VERSION).not_to be nil
+  describe "version" do
+    subject { Kazan::VERSION }
+
+    it { is_expected.not_to be_nil }
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  describe "rails version" do
+    subject { Kazan::RUBY_PROJECT_VERSION }
+
+    it { is_expected.not_to be nil }
+  end
+
+  describe "ruby version" do
+    subject { Kazan::RAILS_VERSION }
+
+    it { is_expected.not_to be_nil }
   end
 end

@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+
+source_path = (Pathname.new(__FILE__).dirname + '../lib').expand_path
+$LOAD_PATH << source_path
+
+require 'suspenders'
+
+
+
+puts "Kazan => done"

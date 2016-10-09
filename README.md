@@ -1,5 +1,10 @@
 # Kazan
 
+[![Build Status](https://travis-ci.org/khusnetdinov/kazan.svg?branch=master)](https://travis-ci.org/khusnetdinov/kazan)
+
+![img](http://res.cloudinary.com/dtoqqxqjv/image/upload/v1476011701/147601141068782_rgcl3z.png)
+
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/kazan`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
