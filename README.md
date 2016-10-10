@@ -32,7 +32,9 @@ It includes applications gems:
 It includes assets gems:
 
 It includes development gems:
+
   - [Annotate](https://github.com/ctran/annotate_models) adds a comment summarizing the current schema.
+  - [Awesome Print](https://github.com/awesome-print/awesome_print) prints pretty Ruby objects in full color exposing their internal structure with proper indentation.
   - [Better Errors](https://github.com/charliesome/better_errors) replaces the standard Rails error page with a much better and more useful error page.
   - [Listen](https://github.com/guard/listen) listens to file modifications and notifies you about the changes.
   - [Rack Mini Profiler](https://github.com/MiniProfiler/rack-mini-profiler) displays speed badge for every html page.
