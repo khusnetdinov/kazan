@@ -21,3 +21,10 @@ elsif ['rails'].include?(ARGV[0]) && ['-v', '--version'].include?(ARGV[1])
   puts Kazan::RAILS_VERSION
   exit 0
 end
+
+templates_root = File.expand_path(File.join("..", "templates"), File.dirname(__FILE__))
+Kazan::AppGenerator.source_root templates_root
+Kazan::AppGenerator.source_paths << Rails::Generators::AppGenerator.source_root << templates_root
+
+Kazan::AppGenerator.start
+
