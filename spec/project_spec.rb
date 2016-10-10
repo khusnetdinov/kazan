@@ -33,11 +33,9 @@ RSpec.describe "Project with configuration" do
     subject { load_file "Gemfile" }
 
     it { is_expected.to include %{source} }
-
     it { is_expected.to include %{gem 'rails'} }
-
     it { is_expected.to include %{gem 'rack-mini-profiler', require: false} }
-
     it { is_expected.to include %{gem 'better_errors'} }
+    it { is_expected.to include %{gem 'annotate'} }
   end
 end
