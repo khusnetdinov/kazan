@@ -13,5 +13,9 @@ module Kazan
     def gemfile
       template 'Gemfile.erb', 'Gemfile'
     end
+
+    def setup_spring
+      bundle_command "exec spring binstub --all"
+    end
   end
 end

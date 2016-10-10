@@ -11,6 +11,13 @@ module Kazan
     end
 
     def customization
+      invoke :setup_spring
+
+    end
+
+    def setup_spring
+      say "Setup spring binstubs"
+      build :setup_spring
 
     end
 

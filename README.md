@@ -25,7 +25,18 @@ Run:
 
 ## Gems
 
-  TODO
+See all gems that will be installed to project in [Gemfile](https://github.com/khusnetdinov/kazan/blob/master/templates/Gemfile.erb)
+
+It includes applications gems:
+
+It includes assets gems:
+
+It includes development gems:
+
+  - [Spring](https://github.com/rails/spring) speeds up development by keeping your application running in the background.
+
+It includes tests gems:
+
 
 ## Cookies
 
