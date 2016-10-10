@@ -6,14 +6,20 @@ RSpec.describe "Project with configuration" do
   end
 
   describe "README.md" do
-    subject { IO.read("#{project_path}/README.md") }
+    subject { load_file "README.md" }
 
     it { is_expected.to match(/Requirements/)}
   end
 
   describe ".gitignore" do
-    subject { IO.read("#{project_path}/.gitignore") }
+    subject { load_file ".gitignore" }
 
     it { is_expected.to be_truthy }
+  end
+
+  describe "Gemfile" do
+    subject { load_file "Gemfile" }
+
+    it { is_expected.to match(/rubygems\.org/) }
   end
 end

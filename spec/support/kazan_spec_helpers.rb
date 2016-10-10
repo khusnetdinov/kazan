@@ -22,6 +22,10 @@ module KazanSpecHelpers
     end
   end
 
+  def load_file(file_name)
+    IO.read("#{project_path}/#{file_name}")
+  end
+
   # def suspenders_help_command
     # Dir.chdir(tmp_path) do
       # Bundler.with_clean_env do
