@@ -15,7 +15,11 @@ module Kazan
     end
 
     def setup_spring
-      bundle_command "exec spring binstub --all"
+      bundle_command 'exec spring binstub --all'
+    end
+
+    def setup_rack_mini_profiler
+      copy_file 'rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
     end
   end
 end

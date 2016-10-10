@@ -17,12 +17,6 @@ RSpec.describe "Project with configuration" do
     it { is_expected.to be_truthy }
   end
 
-  describe "Gemfile" do
-    subject { load_file "Gemfile" }
-
-    it { is_expected.to match(/rubygems\.org/) }
-  end
-
   describe "spring gem setup" do
     subject { File }
 
@@ -35,9 +29,13 @@ RSpec.describe "Project with configuration" do
     end
   end
 
-  describe "rails gem" do
+  describe "Gemfile" do
     subject { load_file "Gemfile" }
 
-    it { is_expected.to match(/rails/) }
+    it { is_expected.to include %{source} }
+
+    it { is_expected.to include %{gem 'rails'} }
+
+    it { is_expected.to include %{gem 'rack-mini-profiler', require: false} }
   end
 end

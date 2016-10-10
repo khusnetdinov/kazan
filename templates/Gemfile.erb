@@ -4,6 +4,10 @@ ruby "<%= Kazan::RUBY_PROJECT_VERSION %>"
 
 gem 'rails', "<%= Kazan::RAILS_VERSION %>"
 
+# application
+
+# assets
+
 group :development do
   gem 'listen'
   gem 'spring'
@@ -17,6 +21,7 @@ group :test do
 end
 
 group :development, :staging do
+  gem 'rack-mini-profiler', require: false
 end
 
 group :staging, :production do

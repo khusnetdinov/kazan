@@ -33,7 +33,9 @@ It includes assets gems:
 
 It includes development gems:
 
+  - [Listen](https://github.com/guard/listen) listens to file modifications and notifies you about the changes.
   - [Spring](https://github.com/rails/spring) speeds up development by keeping your application running in the background.
+  - [Rack Mini Profiler](https://github.com/MiniProfiler/rack-mini-profiler) displays speed badge for every html page.
 
 It includes tests gems:
 
