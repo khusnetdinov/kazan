@@ -34,4 +34,10 @@ RSpec.describe "Project with configuration" do
       end
     end
   end
+
+  describe "rails gem" do
+    subject { load_file "Gemfile" }
+
+    it { is_expected.to match(/rails/) }
+  end
 end
