@@ -13,12 +13,12 @@ Kazan creates rails project and setups predefined gems and tools. Inspired by [t
 Install gem:
 
     $ gem install kazan
-    
+
 Run:
-    
+
     $ kazan projectname
 
-## Optional associated services
+## Optional associate services
 
 - TODO: Gitlab CI
 - TODO: Gitlab Docker Registry
