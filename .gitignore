@@ -6,5 +6,5 @@
 /doc/
 /pkg/
 /spec/reports/
-/tmp/
+/temp/
 .DS_Store
