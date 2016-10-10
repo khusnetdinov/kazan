@@ -37,5 +37,7 @@ RSpec.describe "Project with configuration" do
     it { is_expected.to include %{gem 'rails'} }
 
     it { is_expected.to include %{gem 'rack-mini-profiler', require: false} }
+
+    it { is_expected.to include %{gem 'better_errors'} }
   end
 end
