@@ -4,6 +4,9 @@ Kazan creates rails project and setups predefined gems and tools. Inspired by [t
 
 ![img](http://res.cloudinary.com/dtoqqxqjv/image/upload/c_scale,w_240/v1476011701/147601141068782_rgcl3z.png)
 
+## Dependencies
+
+  TODO
 
 ## Installation
 
@@ -15,10 +18,23 @@ Run:
     
     $ kazan projectname
 
-## Usage
+## Optional associated services
 
+- TODO: Gitlab CI
+- TODO: Gitlab Docker Registry
+
+## Gems
+
+  TODO
+
+## Cookies
+
+  TODO
+
+## Other
+
+  TODO
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
