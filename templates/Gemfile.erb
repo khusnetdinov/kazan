@@ -5,51 +5,70 @@ ruby "<%= Kazan::RUBY_PROJECT_VERSION %>"
 gem 'rails', "<%= Kazan::RAILS_VERSION %>"
 
 <%# gem 'rails-i18n' %>
+<%# gem 'dotenv-rails' %>
 <%# gem 'config' %>
-<%# gem 'pg', '0.18.4'                                                              # ORM %>
-<%# gem 'arel'                                                                      # SQL %>
-<%# gem 'activerecord-hierarchical_query', require: 'active_record/hierarchical_query' %>
-<%# gem 'scenic', '~> 1.3' %>
+
+# Models
+<%# gem 'pg', '0.18.4' %>
+
+# Auth / Roles
+<%# gem 'devise' %>
 <%# gem 'pundit' %>
-<%# gem 'rolify'                                                                    # Roles %>
-<%# gem 'devise'                                                                    # Auth %>
-<%# gem 'groupdate' %>
-<%# gem 'slim-rails'                                                                # Compiles to HTML %>
-<%# gem 'sass-rails', '~> 5.0'                                                      # Compiles to CSS %>
-<%# gem 'bootstrap-sass', '~> 3.3.5'                                                # Frontend Styling Framework %>
-<%# gem 'font-awesome-sass'                                                         # Font Awesome %>
-<%# gem 'multipurpose_theme', github: 'khusnetdinov/multipurpose_theme'             # Css Theme %>
-<%# gem 'bourbon'                                                                   # Css framework %>
-<%# gem 'coffee-rails', '~> 4.0.0'                                                  # Compiles to Javascript %>
-<%# gem 'jquery-rails'                                                              # Jquery %>
-<%# gem 'jquery-ui-rails'                                                           # Jquery UI %>
-<%# gem 'jquery-inputmask-rails'                                                    # Masks %>
-<%# gem 'jbuilder', '~> 2.0'                                                        # JSON %>
-<%# gem 'uglifier', '>= 1.3.0'                                                      # Compress and Minify Assets %>
-<%# gem 'highcharts-rails' %>
-<%# gem 'kaminari'                                                                  # Pagination %>
-<%# gem 'simple_form', '3.2.1'                                                      # Forms %>
-<%# gem 'draper', '~> 1.3'                                                          # View Decorators %>
-<%# gem 'friendly_id'                                                               # UUID in urls %>
-<%# gem 'savon'                                                                     # soap xml %>
-<%# gem 'recaptcha', '~> 0.4.0', require: 'recaptcha/rails'                         # Captcha %>
-<%# gem 'rollbar', '~> 2.8.0'                                                       # Errors %>
-<%# gem 'sidekiq', '~> 3.1.4'                                                       # Delayed Jobs %>
+<%# gem 'rolify' %>
+
+# Markup
+
+# Styles
+<%# gem "sass-rails", "~> 5.0" %>
+<%# gem "normalize-rails", "~> 3.0.0" %>
+<%# gem "autoprefixer-rails" %>
+
+# JavaScript
+<%# gem "jquery-rails" %>
+<%# gem "sprockets", ">= 3.0.0" %>
+<%# gem "sprockets-es6" %>
+<%# gem "uglifier" %>
+
+# UI Helpers
+<%# gem 'draper', '~> 1.3' %>
+<%# gem "flutie" %>
+<%# gem 'kaminari' %>
+<%# gem 'simple_form', '3.2.1' %>
+
+# Monitoring
+<%# gem 'rollbar', '~> 2.8.0' %>
+
+# Background
+<%# gem "delayed_job_active_record" %>
+
+<%# gem 'sidekiq', '~> 3.1.4' %>
 <%# gem 'sidekiq-failures' %>
-<%# gem 'sinatra', require: false                                                   # Web interface of Sidekiq processes %>
-<%# gem 'whenever', require: false                                                  # Cron jobs %>
-<%# gem 'clockwork', require: false                                                 # Jobs scheduling %>
-<%# gem 'carrierwave', github:'carrierwaveuploader/carrierwave'                     # Image Uploader %>
-<%# gem 'cloudinary', github: 'onebidone/cloudinary_gem'                            # Image Upload %>
+<%# gem 'sinatra', require: false %>
+<%# gem 'rspec-sidekiq' %>
+
+<%# gem 'whenever', require: false %>
+<%# gem 'clockwork', require: false %>
+<%# gem 'clockwork-test' %>
+
+# Images
+<%# gem 'carrierwave', github:'carrierwaveuploader/carrierwave' %>
+<%# gem 'cloudinary', github: 'onebidone/cloudinary_gem' %>
+
+# Pdf
 <%# gem 'wicked_pdf' %>
 <%# gem 'wkhtmltopdf-binary' %>
-<%# gem 'puma'                                                                      # Dev server %>
-<%# gem 'foreman', '~> 0.78.0'                                                      # Production Vars %>
-<%# gem 'daemons' %>
+
+# Server
+<%# gem "rack-canonical-host" %>
+<%# gem 'puma' %>
+
+# Other
+<%# gem "recipient_interceptor" %>
 
 group :development do
   gem 'annotate'
   gem 'better_errors'
+<%# gem 'foreman', '~> 0.78.0' %>
   gem 'listen'
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -57,23 +76,25 @@ end
 
 group :development, :test do
   gem 'awesome_print'
-  <%# gem "bullet" %>
-  <%# gem "bundler-audit", ">= 0.5.0", require: false %>
-  <%# gem "dotenv-rails" %>
-  <%# gem "factory_girl_rails" %>
-  <%# gem "pry-byebug" %>
-  <%# gem "pry-rails" %>
-  <%# gem "rspec-rails", "~> 3.5.0.beta4" %>
+  <%# gem 'bullet' %>
+  <%# gem 'bundler-audit', '>= 0.5.0', require: false %>
+  <%# gem 'dotenv-rails' %>
+  <%# gem 'faker' %>
+  <%# gem 'factory_girl_rails' %>
+  <%# gem 'pry-byebug' %>
+  <%# gem 'pry-rails' %>
+  <%# gem 'rspec-rails', '~> 3.5.0.beta4' %>
 end
 
 group :test do
-  <%# gem "database_cleaner" %>
-  <%# gem "formulaic" %>
-  <%# gem "launchy" %>
-  <%# gem "shoulda-matchers" %>
-  <%# gem "simplecov", require: false %>
-  <%# gem "timecop" %>
-  <%# gem "webmock" %>
+  <%# gem 'capybara' %>
+  <%# gem 'database_cleaner' %>
+  <%# gem 'formulaic' %>
+  <%# gem 'launchy' %>
+  <%# gem 'shoulda-matchers' %>
+  <%# gem 'simplecov', require: false %>
+  <%# gem 'timecop' %>
+  <%# gem 'webmock' %>
 end
 
 group :development, :staging do
@@ -81,4 +102,5 @@ group :development, :staging do
 end
 
 group :staging, :production do
+  <%# gem 'rack-timeout'  %>
 end
