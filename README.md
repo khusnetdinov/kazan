@@ -27,6 +27,10 @@ Run:
 
 See all gems that will be installed to project in [Gemfile](https://github.com/khusnetdinov/kazan/blob/master/templates/Gemfile.erb)
 
+Default it use
+ - [Rails 5.0.0](http://rubyonrails.org/)
+ - [PostgreSQL](https://www.postgresql.org/) database with [PG](https://rubygems.org/gems/pg/versions/0.18.4) adapter.
+
 It includes applications gems:
 
 It includes assets gems:
