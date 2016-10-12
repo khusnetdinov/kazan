@@ -1,23 +1,23 @@
 require 'spec_helper'
 
-RSpec.describe "Project with configuration" do
+RSpec.describe 'Project with configuration' do
   before(:all) do
     run_app_generator
   end
 
-  describe "README.md" do
-    subject { load_file "README.md" }
+  describe 'README.md' do
+    subject { load_file 'README.md' }
 
     it { is_expected.to match(/Requirements/)}
   end
 
-  describe ".gitignore" do
-    subject { load_file ".gitignore" }
+  describe '.gitignore' do
+    subject { load_file '.gitignore' }
 
     it { is_expected.to be_truthy }
   end
 
-  describe "spring gem setup" do
+  describe 'spring gem setup' do
     subject { File }
 
     it { is_expected.to exist("#{project_path}/bin/spring") }
@@ -29,8 +29,8 @@ RSpec.describe "Project with configuration" do
     end
   end
 
-  describe "Gemfile" do
-    subject { load_file "Gemfile" }
+  describe 'Gemfile' do
+    subject { load_file 'Gemfile' }
 
     it { is_expected.to include %{source} }
     it { is_expected.to include %{gem 'rails'} }
