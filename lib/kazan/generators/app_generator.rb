@@ -56,6 +56,7 @@ module Kazan
     def setup_app
       say 'Setup application'
       build :rack_mini_profiler
+      build :puma_configuration
     end
 
     def setup_miscellaneous_files

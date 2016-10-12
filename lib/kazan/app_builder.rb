@@ -18,6 +18,10 @@ module Kazan
       copy_file 'rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
     end
 
+    def puma_configuration
+      copy_file 'puma.rb', 'config/puma.rb', force: true
+    end
+
     def postgres_config
       template 'database.yml.erb', 'config/database.yml', force: true
       template 'database.yml.erb', 'config/database.yml.example'
