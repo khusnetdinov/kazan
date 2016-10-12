@@ -42,6 +42,12 @@ RSpec.describe 'Project with configuration' do
     end
   end
 
+  describe 'puma.rb' do
+    subject { load_file 'config/puma.rb' }
+
+    it { is_expected.to be_truthy }
+  end
+
   describe 'Gemfile' do
     subject { load_file 'Gemfile' }
 
@@ -52,5 +58,6 @@ RSpec.describe 'Project with configuration' do
     it { is_expected.to include %{gem 'annotate'} }
     it { is_expected.to include %{gem 'awesome_print'} }
     it { is_expected.to include %{gem 'pg'} }
+    it { is_expected.to include %{gem 'puma'} }
   end
 end

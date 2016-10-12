@@ -31,6 +31,7 @@ It includes applications gems:
 
   - [Rails 5.0.0](http://rubyonrails.org/)
   - [PostgreSQL](https://www.postgresql.org/) database with [PG](https://rubygems.org/gems/pg/versions/0.18.4) adapter.
+  - [Puma](http://puma.io/) is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications.
 
 It includes assets gems:
 
