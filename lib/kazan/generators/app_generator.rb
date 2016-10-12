@@ -5,6 +5,9 @@ module Kazan
   class AppGenerator < Rails::Generators::AppGenerator
     hide!
 
+    class_option :database, type: :string, aliases: "-d", default: "postgresql",
+      desc: "Configure for selected database (options: #{DATABASES.join("/")})"
+
     def finish_template
       invoke :customization
       super
@@ -23,7 +26,7 @@ module Kazan
       # invoke :setup_config
       # invoke :setup_routes
       # invoke :setup_git
-      # invoke :setup_database
+      invoke :setup_database
       # invoke :setup_project_repository
       # invoke :setup_segment
       # invoke :setup_bundler_audit
@@ -52,7 +55,7 @@ module Kazan
 
     def setup_app
       say 'Setup application'
-      build :setup_rack_mini_profiler
+      build :rack_mini_profiler
     end
 
     def setup_miscellaneous_files
@@ -71,6 +74,9 @@ module Kazan
     end
 
     def setup_database
+      say 'Setup database'
+      build :postgres_config if options[:database] == 'postgresql'
+      build :database_tables
     end
 
     def setup_project_repository
@@ -84,7 +90,7 @@ module Kazan
 
     def setup_spring
       say 'Setup spring binstubs'
-      build :setup_spring
+      build :spring
     end
 
     def setup_default

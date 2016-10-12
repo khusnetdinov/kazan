@@ -22,51 +22,36 @@ module KazanSpecHelpers
     end
   end
 
-  def load_file(file_name)
-    IO.read("#{project_path}/#{file_name}")
+  def setup_app_dependencies
+    if File.exist?(project_path)
+      Dir.chdir(project_path) do
+        Bundler.with_clean_env do
+          `bundle check || bundle install`
+        end
+      end
+    end
   end
 
-  # def suspenders_help_command
-    # Dir.chdir(tmp_path) do
-      # Bundler.with_clean_env do
-        # `
-        # #{suspenders_bin} -h
-        # `
-      # end
-    # end
-  # end
-
-  # def setup_app_dependencies
-    # if File.exist?(project_path)
-      # Dir.chdir(project_path) do
-        # Bundler.with_clean_env do
-          # `bundle check || bundle install`
-        # end
-      # end
-    # end
-  # end
-
-  # def drop_dummy_database
-    # if File.exist?(project_path)
-      # Dir.chdir(project_path) do
-        # Bundler.with_clean_env do
-          # `rake db:drop`
-        # end
-      # end
-    # end
-  # end
-
-  # def add_fakes_to_path
-    # ENV["PATH"] = "#{support_bin}:#{ENV['PATH']}"
-  # end
+  def drop_app_database
+    if File.exist?(project_path)
+      Dir.chdir(project_path) do
+        Bundler.with_clean_env do
+          `rake db:drop`
+        end
+      end
+    end
+  end
 
   def project_path
     @temp_project_path ||= Pathname.new("#{temp_path}/#{APP_NAME}")
   end
 
-
   def temp_project_name
     APP_NAME.humanize
+  end
+
+  def load_file(file_name)
+    IO.read("#{project_path}/#{file_name}")
   end
 
   private

@@ -2,7 +2,12 @@ require 'spec_helper'
 
 RSpec.describe 'Project with configuration' do
   before(:all) do
+    setup_app_dependencies
     run_app_generator
+  end
+
+  after(:all) do
+    drop_app_database
   end
 
   describe 'README.md' do
@@ -29,6 +34,14 @@ RSpec.describe 'Project with configuration' do
     end
   end
 
+  %w(database.yml database.yml.example).each do |config_file|
+    describe config_file do
+      subject { load_file "config/#{config_file}" }
+
+      it { is_expected.to be_truthy }
+    end
+  end
+
   describe 'Gemfile' do
     subject { load_file 'Gemfile' }
 
@@ -38,5 +51,6 @@ RSpec.describe 'Project with configuration' do
     it { is_expected.to include %{gem 'better_errors'} }
     it { is_expected.to include %{gem 'annotate'} }
     it { is_expected.to include %{gem 'awesome_print'} }
+    it { is_expected.to include %{gem 'pg'} }
   end
 end

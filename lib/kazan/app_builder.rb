@@ -14,12 +14,21 @@ module Kazan
       template 'Gemfile.erb', 'Gemfile'
     end
 
-    def setup_spring
-      bundle_command 'exec spring binstub --all'
+    def rack_mini_profiler
+      copy_file 'rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
     end
 
-    def setup_rack_mini_profiler
-      copy_file 'rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
+    def postgres_config
+      template 'database.yml.erb', 'config/database.yml', force: true
+      template 'database.yml.erb', 'config/database.yml.example'
+    end
+
+    def database_tables
+      bundle_command 'exec rake db:create db:migrate'
+    end
+
+    def spring
+      bundle_command 'exec spring binstub --all'
     end
   end
 end

@@ -1,5 +1,6 @@
 if Rails.env == 'development' || Rails.env == 'staging'
-  require 'rack_mini_profiler'
-
-  Rack::MiniProfilerRails.initialize!(Rails.application)
+  ## Before uncomment read https://github.com/MiniProfiler/rack-mini-profiler#rails-and-manual-initialization
+  # require 'rack_mini_profiler'
+  #
+  # Rack::MiniProfilerRails.initialize!(Rails.application)
 end

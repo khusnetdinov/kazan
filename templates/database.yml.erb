@@ -1,0 +1,27 @@
+settings: &settings
+  adapter: postgresql
+  encoding: utf8
+  min_messages: warning
+  timeout: 5000
+  pool: 5
+
+development:
+  <<: *settings
+  reaping_frequency: 10
+  database: <%= app_name %>_development
+
+test:
+  <<: *settings
+  reaping_frequency: 10
+  database: <%= app_name %>_test
+
+staging:
+  <<: *settings
+  database: <%= app_name %>_staging
+
+production:
+  <<: *settings
+  username:
+  password:
+  database: <%= app_name %>_production
+
