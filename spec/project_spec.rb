@@ -10,18 +10,6 @@ RSpec.describe 'Project with configuration' do
     drop_app_database
   end
 
-  describe 'README.md' do
-    subject { load_file 'README.md' }
-
-    it { is_expected.to match(/Requirements/)}
-  end
-
-  describe '.gitignore' do
-    subject { load_file '.gitignore' }
-
-    it { is_expected.to be_truthy }
-  end
-
   describe 'spring gem setup' do
     subject { File }
 
@@ -34,18 +22,20 @@ RSpec.describe 'Project with configuration' do
     end
   end
 
-  %w(database.yml database.yml.example).each do |config_file|
-    describe config_file do
-      subject { load_file "config/#{config_file}" }
+  %w(README.md .gitignore .ruby-version).each do |config|
+    describe config do
+      subject { load_file config }
 
-      it { is_expected.to be_truthy }
+      it { is_expected.to be_truthy}
     end
   end
 
-  describe 'puma.rb' do
-    subject { load_file 'config/puma.rb' }
+  %w(database.yml database.yml.example puma.rb).each do |config|
+    describe config do
+      subject { load_file "config/#{config}" }
 
-    it { is_expected.to be_truthy }
+      it { is_expected.to be_truthy }
+    end
   end
 
   describe 'Gemfile' do

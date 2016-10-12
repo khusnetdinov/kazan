@@ -14,7 +14,7 @@ module Kazan
     end
 
     def customization
-      # invoke :setup_gemfile
+      invoke :setup_gemfile
       # invoke :setup_development_environment
       # invoke :setup_test_environment
       # invoke :setup_production_environment
@@ -31,11 +31,13 @@ module Kazan
       # invoke :setup_segment
       # invoke :setup_bundler_audit
       invoke :setup_spring
-      # invoke :setup_default
+      # invoke :setup_assets
       # invoke :outro
     end
 
     def setup_gemfile
+      say 'Setup gems'
+      build :ruby_version
     end
 
     def setup_development_environment
@@ -94,7 +96,7 @@ module Kazan
       build :spring
     end
 
-    def setup_default
+    def setup_assets
     end
 
     def outro

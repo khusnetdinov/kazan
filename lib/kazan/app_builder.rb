@@ -14,6 +14,10 @@ module Kazan
       template 'Gemfile.erb', 'Gemfile'
     end
 
+    def ruby_version
+      create_file '.ruby-version', "#{Kazan::RUBY_PROJECT_VERSION}\n"
+    end
+
     def rack_mini_profiler
       copy_file 'rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
     end
