@@ -38,6 +38,14 @@ RSpec.describe 'Project with configuration' do
     end
   end
 
+  %w(simple_form.rb).each do |initializer|
+    describe initializer do
+      subject { load_file "config/initializers/#{initializer}" }
+
+      it { is_expected.to be_truthy }
+    end
+  end
+
   describe 'Gemfile' do
     subject { load_file 'Gemfile' }
 

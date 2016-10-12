@@ -15,6 +15,7 @@ module Kazan
 
     def customization
       invoke :setup_gemfile
+      invoke :setup_helpers
       # invoke :setup_development_environment
       # invoke :setup_test_environment
       # invoke :setup_production_environment
@@ -38,6 +39,11 @@ module Kazan
     def setup_gemfile
       say 'Setup gems'
       build :ruby_version
+    end
+
+    def setup_helpers
+     say 'Setup helpers'
+     build :simple_form_config
     end
 
     def setup_development_environment

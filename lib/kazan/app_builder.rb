@@ -18,6 +18,10 @@ module Kazan
       create_file '.ruby-version', "#{Kazan::RUBY_PROJECT_VERSION}\n"
     end
 
+    def simple_form_config
+      bundle_command 'exec rails generate simple_form:install'
+    end
+
     def rack_mini_profiler
       copy_file 'rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
     end
