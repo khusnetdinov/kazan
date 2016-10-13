@@ -57,6 +57,11 @@ module Kazan
       inject_into_class 'config/application.rb', 'Application', config
     end
 
+    def exception_on_missing_translations
+      exception_on_missing_translations_in 'development'
+      exception_on_missing_translations_in 'test'
+    end
+
     def letter_opener_config
       letter_opener_settings = <<-RUBY
   # Letter opener settings
@@ -69,6 +74,15 @@ module Kazan
 
     def bullet_config
       template 'bullet.rb', 'config/initializers/bullet.rb'
+    end
+
+    def quiet_assets_config
+      config = <<-RUBY
+    config.assets.quiet = true
+
+      RUBY
+
+      inject_into_class 'config/application.rb', 'Application', config
     end
 
     def rails_generators_config
@@ -86,11 +100,6 @@ module Kazan
       RUBY
 
       inject_into_class 'config/application.rb', 'Application', config
-    end
-
-    def exception_on_missing_translations
-      exception_on_missing_translations_in 'development'
-      exception_on_missing_translations_in 'test'
     end
 
     def exception_on_missing_assets_in_test

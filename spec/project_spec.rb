@@ -103,33 +103,34 @@ RSpec.describe 'Project with configuration' do
   describe 'application.rb' do
     subject { load_file 'config/application.rb' }
 
-    it { is_expected.to match(/action_on_unpermitted_parameters = :raise/)}
-    it { is_expected.to match(/config.generators/)}
+    it { is_expected.to match(/action_on_unpermitted_parameters = :raise/) }
+    it { is_expected.to match(/config.generators/) }
+    it { is_expected.to match(/config.assets.quiet = true/) }
   end
 
   describe 'environments/development.rb' do
-    subject { load_file 'config/environments/development.rb'}
+    subject { load_file 'config/environments/development.rb' }
 
     it { is_expected.to be_truthy }
-    it { is_expected.to match(/raise_delivery_errors = true/)}
-    it { is_expected.to match(/action_mailer.default_url_options/)}
-    it { is_expected.to match(/action_mailer.delivery_method/)}
-    it { is_expected.to match(/raise_on_missing_translations = true/)}
+    it { is_expected.to match(/raise_delivery_errors = true/) }
+    it { is_expected.to match(/action_mailer.default_url_options/) }
+    it { is_expected.to match(/action_mailer.delivery_method/) }
+    it { is_expected.to match(/raise_on_missing_translations = true/) }
   end
 
   describe 'environments/test.rb' do
-    subject { load_file 'config/environments/test.rb'}
+    subject { load_file 'config/environments/test.rb' }
 
     it { is_expected.to be_truthy }
-    it { is_expected.to match(/config.assets.raise_runtime_errors = true/)}
-    it { is_expected.to match(/raise_on_missing_translations = true/)}
+    it { is_expected.to match(/config.assets.raise_runtime_errors = true/) }
+    it { is_expected.to match(/raise_on_missing_translations = true/) }
   end
 
   describe 'environments/staging.rb' do
   end
 
   describe 'environments/production.rb' do
-    subject { load_file 'config/environments/production.rb'}
+    subject { load_file 'config/environments/production.rb' }
 
     it { is_expected.to be_truthy }
   end

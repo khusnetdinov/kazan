@@ -56,10 +56,11 @@ module Kazan
       say 'Setup development environment'
       build :exception_on_delivery_errors
       build :exception_on_unpermitted_parameters
+      build :exception_on_missing_translations
       build :letter_opener_config
       build :bullet_config
+      build :quiet_assets_config
       build :rails_generators_config
-      build :exception_on_missing_translations
     end
 
     def setup_test_environment
