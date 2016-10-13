@@ -43,6 +43,7 @@ RSpec.describe 'Project with configuration' do
     'bullet',
     'bundler-audit',
     'dotenv',
+    'flutie',
     'foreman',
     'letter_opener',
     'pg',
