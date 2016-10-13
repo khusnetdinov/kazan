@@ -20,7 +20,7 @@ module Kazan
       invoke :setup_gems
       invoke :setup_secrets
       invoke :setup_development_environment
-      # invoke :setup_test_environment
+      invoke :setup_test_environment
       # invoke :setup_production_environment
       invoke :setup_database
       # invoke :setup_assets
@@ -68,6 +68,7 @@ module Kazan
     def setup_test_environment
       say 'Setup test environment'
       build :exception_on_missing_assets_in_test
+      build :spec_translations_config
     end
 
     def setup_database

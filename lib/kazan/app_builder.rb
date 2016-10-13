@@ -119,6 +119,10 @@ module Kazan
       configure_environment 'test', 'config.assets.raise_runtime_errors = true'
     end
 
+    def spec_translations_config
+      copy_file 'i18n.rb', 'spec/support/i18n.rb'
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end

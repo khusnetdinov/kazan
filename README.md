@@ -30,6 +30,7 @@ See all gems that will be installed to project in [Gemfile](https://github.com/k
 It includes applications gems:
 
   - [Dotenv](https://github.com/bkeepers/dotenv) Shim to load environment variables from .env into ENV in development.
+  - [I18n](https://github.com/svenfuchs/rails-i18n) is central point to collect locale data for use in Ruby on Rails.
   - [PostgreSQL](https://www.postgresql.org/) database with [PG](https://rubygems.org/gems/pg/versions/0.18.4) adapter is used by defaul.
   - [Puma](http://puma.io/) is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications.
   - [Rails 5.0.0](http://rubyonrails.org/)

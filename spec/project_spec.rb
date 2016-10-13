@@ -54,7 +54,12 @@ RSpec.describe 'Project with configuration' do
     'puma',
     'rack-mini-profiler',
     'rails',
+    'rails-i18n',
     'web-console'
+  ]
+
+  SUPPORTS = [
+    'i18n.rb'
   ]
 
   describe 'spring bin' do
@@ -100,6 +105,14 @@ RSpec.describe 'Project with configuration' do
 
      # it { is_expected.to be_truthy }
    # end
+
+  SUPPORTS.each do |support|
+    describe support do
+      subject { load_file "spec/support/#{support}" }
+
+      it { is_expected.to be_truthy }
+    end
+  end
 
   describe 'Gemfile' do
     subject { load_file 'Gemfile' }
