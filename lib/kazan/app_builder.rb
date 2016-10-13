@@ -22,11 +22,11 @@ module Kazan
       bundle_command 'exec rails generate simple_form:install'
     end
 
-    def rack_mini_profiler
+    def rack_mini_profiler_config
       copy_file 'rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
     end
 
-    def puma_configuration
+    def puma_config
       copy_file 'puma.rb', 'config/puma.rb', force: true
     end
 

@@ -14,72 +14,36 @@ module Kazan
     end
 
     def customization
-      invoke :setup_gemfile
-      invoke :setup_helpers
+      invoke :setup_ruby
+      invoke :setup_gems
+      # invoke :setup_configs
+      # invoke :setup_secret_token
       # invoke :setup_development_environment
       # invoke :setup_test_environment
       # invoke :setup_production_environment
-      # invoke :setup_secret_token
-      # invoke :setup_views
-      # invoke :setup_app
+      invoke :setup_database
+      # invoke :setup_assets
       # invoke :setup_miscellaneous_files
+      # invoke :setup_views
       # invoke :setup_error_pages
-      # invoke :setup_config
       # invoke :setup_routes
       # invoke :setup_git
-      invoke :setup_database
       # invoke :setup_project_repository
-      # invoke :setup_segment
       # invoke :setup_bundler_audit
       invoke :setup_spring
-      # invoke :setup_assets
       # invoke :outro
     end
 
-    def setup_gemfile
-      say 'Setup gems'
+    def setup_ruby
+      say 'Setup ruby'
       build :ruby_version
     end
 
-    def setup_helpers
-     say 'Setup helpers'
+    def setup_gems
+     say 'Setup gems'
      build :simple_form_config
-    end
-
-    def setup_development_environment
-    end
-
-    def setup_test_environment
-    end
-
-    def setup_production_environment
-    end
-
-    def setup_secret_token
-    end
-
-    def setup_views
-    end
-
-    def setup_app
-      say 'Setup application'
-      build :rack_mini_profiler
-      build :puma_configuration
-    end
-
-    def setup_miscellaneous_files
-    end
-
-    def setup_error_pages
-    end
-
-    def setup_config
-    end
-
-    def setup_routes
-    end
-
-    def setup_git
+     build :rack_mini_profiler_config
+     build :puma_config
     end
 
     def setup_database
@@ -88,24 +52,9 @@ module Kazan
       build :database_tables
     end
 
-    def setup_project_repository
-    end
-
-    def setup_segment
-    end
-
-    def setup_bundler_audit
-    end
-
     def setup_spring
       say 'Setup spring binstubs'
       build :spring
-    end
-
-    def setup_assets
-    end
-
-    def outro
     end
 
     protected
