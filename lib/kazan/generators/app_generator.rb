@@ -54,6 +54,7 @@ module Kazan
       say 'Setup development environment'
       build :exception_on_delivery_errors
       build :letter_opener_config
+      build :bullet_config
     end
 
     def setup_test_environment

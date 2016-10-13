@@ -58,6 +58,10 @@ module Kazan
       configure_environment 'development', letter_opener_settings
     end
 
+    def bullet_config
+      template 'bullet.rb', 'config/initializers/bullet.rb'
+    end
+
     def exception_on_missing_assets_in_test
       configure_environment 'test', 'config.assets.raise_runtime_errors = true'
     end

@@ -32,12 +32,14 @@ RSpec.describe 'Project with configuration' do
   ]
 
   INITIALIZERS = [
+    'bullet.rb'
   ]
 
   GEMS = [
     'annotate',
     'awesome_print',
     'better_errors',
+    'bullet',
     'dotenv',
     'letter_opener',
     'pg',
