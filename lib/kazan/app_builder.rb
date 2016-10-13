@@ -43,6 +43,10 @@ module Kazan
       directory 'envs', '.'
     end
 
+    def settings
+      template 'settings.yml.erb', 'config/settings.yml'
+    end
+
     def exception_on_delivery_errors
      replace_in_file 'config/environments/development.rb',
        'raise_delivery_errors = false', 'raise_delivery_errors = true'

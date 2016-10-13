@@ -29,7 +29,8 @@ RSpec.describe 'Project with configuration' do
   CONFIGS = [
     'database.yml',
     'database.yml.example',
-    'puma.rb'
+    'puma.rb',
+    'settings.yml'
   ]
 
   INITIALIZERS = [
@@ -42,6 +43,7 @@ RSpec.describe 'Project with configuration' do
     'better_errors',
     'bullet',
     'bundler-audit',
+    'config',
     'dotenv',
     'flutie',
     'foreman',

@@ -50,6 +50,7 @@ module Kazan
     def setup_secrets
       say 'Setup secrets'
       build :dotenvs
+      build :settings
     end
 
     def setup_development_environment
