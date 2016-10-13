@@ -50,6 +50,7 @@ It includes development gems:
   - [Pry](https://github.com/rweng/pry-rails) for interactively exploring objects.
   - [Rack Mini Profiler](https://github.com/MiniProfiler/rack-mini-profiler) displays speed badge for every html page.
   - [Spring](https://github.com/rails/spring) speeds up development by keeping your application running in the background.
+  - [Web Console](https://github.com/rails/web-console) is a debugging tool for your Ruby on Rails applications.
 
 It includes tests gems:
 

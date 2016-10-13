@@ -48,7 +48,8 @@ RSpec.describe 'Project with configuration' do
     'pry-rails',
     'puma',
     'rack-mini-profiler',
-    'rails'
+    'rails',
+    'web-console'
   ]
 
   describe 'spring bin' do
