@@ -39,6 +39,10 @@ module Kazan
       bundle_command 'exec rake db:create db:migrate'
     end
 
+    def dotenvs
+      directory 'envs', '.'
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end

@@ -16,8 +16,7 @@ module Kazan
     def customization
       invoke :setup_ruby
       invoke :setup_gems
-      # invoke :setup_configs
-      # invoke :setup_secret_token
+      invoke :setup_secrets
       # invoke :setup_development_environment
       # invoke :setup_test_environment
       # invoke :setup_production_environment
@@ -44,6 +43,11 @@ module Kazan
      build :simple_form_config
      build :rack_mini_profiler_config
      build :puma_config
+    end
+
+    def setup_secrets
+      say 'Setup secrets'
+      build :dotenvs
     end
 
     def setup_database

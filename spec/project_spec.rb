@@ -20,7 +20,11 @@ RSpec.describe 'Project with configuration' do
     'Gemfile',
     'README.md',
     '.ruby-version',
-    '.gitignore'
+    '.gitignore',
+    '.env.development',
+    '.env.test',
+    '.env.staging',
+    '.env.production',
   ]
 
   CONFIGS = [
@@ -33,13 +37,14 @@ RSpec.describe 'Project with configuration' do
   ]
 
   GEMS = [
-    'rails',
-    'rack-mini-profiler',
-    'better_errors',
     'annotate',
     'awesome_print',
+    'better_errors',
+    'dotenv',
     'pg',
-    'puma'
+    'puma',
+    'rack-mini-profiler',
+    'rails'
   ]
 
   describe 'spring bin' do
