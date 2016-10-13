@@ -43,6 +43,7 @@ RSpec.describe 'Project with configuration' do
     'dotenv',
     'letter_opener',
     'pg',
+    'pry-rails',
     'puma',
     'rack-mini-profiler',
     'rails'
