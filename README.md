@@ -48,9 +48,9 @@ It includes development gems:
 It includes tests gems:
 
 
-## Cookies
+## Bonuses
 
-  TODO
+  - [Safe binstubs] (https://github.com/thoughtbot/suspenders/pull/282)
 
 ## Other
 
