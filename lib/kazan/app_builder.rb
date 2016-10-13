@@ -88,12 +88,25 @@ module Kazan
       inject_into_class 'config/application.rb', 'Application', config
     end
 
+    def exception_on_missing_translations
+      exception_on_missing_translations_in 'development'
+      exception_on_missing_translations_in 'test'
+    end
+
     def exception_on_missing_assets_in_test
       configure_environment 'test', 'config.assets.raise_runtime_errors = true'
     end
 
     def spring
       bundle_command 'exec spring binstub --all'
+    end
+
+    private
+
+    def exception_on_missing_translations_in(environment)
+      config = 'config.action_view.raise_on_missing_translations = true'
+
+      uncomment_lines("config/environments/#{environment}.rb", config)
     end
   end
 end

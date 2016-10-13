@@ -8,6 +8,8 @@ module Kazan
     class_option :database, type: :string, aliases: "-d", default: "postgresql",
       desc: "Configure for selected database (options: #{DATABASES.join("/")})"
 
+    class_option :skip_test, type: :string, default: '--skip-test-unit'
+
     def finish_template
       invoke :customization
       super
@@ -57,10 +59,11 @@ module Kazan
       build :letter_opener_config
       build :bullet_config
       build :rails_generators_config
+      build :exception_on_missing_translations
     end
 
     def setup_test_environment
-      say 'Setup development test'
+      say 'Setup test environment'
       build :exception_on_missing_assets_in_test
     end
 

@@ -114,6 +114,7 @@ RSpec.describe 'Project with configuration' do
     it { is_expected.to match(/raise_delivery_errors = true/)}
     it { is_expected.to match(/action_mailer.default_url_options/)}
     it { is_expected.to match(/action_mailer.delivery_method/)}
+    it { is_expected.to match(/raise_on_missing_translations = true/)}
   end
 
   describe 'environments/test.rb' do
@@ -121,6 +122,7 @@ RSpec.describe 'Project with configuration' do
 
     it { is_expected.to be_truthy }
     it { is_expected.to match(/config.assets.raise_runtime_errors = true/)}
+    it { is_expected.to match(/raise_on_missing_translations = true/)}
   end
 
   describe 'environments/staging.rb' do
