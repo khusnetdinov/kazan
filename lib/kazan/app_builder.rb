@@ -43,6 +43,25 @@ module Kazan
       directory 'envs', '.'
     end
 
+    def exception_on_delivery_errors
+     replace_in_file 'config/environments/development.rb',
+       'raise_delivery_errors = false', 'raise_delivery_errors = true'
+    end
+
+    def letter_opener_config
+      letter_opener_settings = <<-RUBY
+  # Letter opener settings
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :letter_opener
+      RUBY
+
+      configure_environment 'development', letter_opener_settings
+    end
+
+    def exception_on_missing_assets_in_test
+      configure_environment 'test', 'config.assets.raise_runtime_errors = true'
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end

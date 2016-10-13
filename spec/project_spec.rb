@@ -39,6 +39,7 @@ RSpec.describe 'Project with configuration' do
     'awesome_print',
     'better_errors',
     'dotenv',
+    'letter_opener',
     'pg',
     'puma',
     'rack-mini-profiler',
@@ -95,5 +96,30 @@ RSpec.describe 'Project with configuration' do
     GEMS.each do |gem|
       it { is_expected.to include gem }
     end
+  end
+
+  describe 'environments/development.rb' do
+    subject { load_file 'config/environments/development.rb'}
+
+    it { is_expected.to be_truthy }
+    it { is_expected.to match(/raise_delivery_errors = true/)}
+    it { is_expected.to match(/action_mailer.default_url_options/)}
+    it { is_expected.to match(/action_mailer.delivery_method/)}
+  end
+
+  describe 'environments/test.rb' do
+    subject { load_file 'config/environments/test.rb'}
+
+    it { is_expected.to be_truthy }
+    it { is_expected.to match(/config.assets.raise_runtime_errors = true/)}
+  end
+
+  describe 'environments/staging.rb' do
+  end
+
+  describe 'environments/production.rb' do
+    subject { load_file 'config/environments/production.rb'}
+
+    it { is_expected.to be_truthy }
   end
 end

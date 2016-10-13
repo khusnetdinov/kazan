@@ -17,7 +17,7 @@ module Kazan
       invoke :setup_ruby
       invoke :setup_gems
       invoke :setup_secrets
-      # invoke :setup_development_environment
+      invoke :setup_development_environment
       # invoke :setup_test_environment
       # invoke :setup_production_environment
       invoke :setup_database
@@ -48,6 +48,17 @@ module Kazan
     def setup_secrets
       say 'Setup secrets'
       build :dotenvs
+    end
+
+    def setup_development_environment
+      say 'Setup development environment'
+      build :exception_on_delivery_errors
+      build :letter_opener_config
+    end
+
+    def setup_test_environment
+      say 'Setup development test'
+      build :exception_on_missing_assets_in_test
     end
 
     def setup_database
