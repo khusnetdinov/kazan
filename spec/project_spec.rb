@@ -100,6 +100,12 @@ RSpec.describe 'Project with configuration' do
     end
   end
 
+  describe 'application.rb' do
+    subject { load_file 'config/application.rb' }
+
+    it { is_expected.to match(/action_on_unpermitted_parameters = :raise/)}
+  end
+
   describe 'environments/development.rb' do
     subject { load_file 'config/environments/development.rb'}
 

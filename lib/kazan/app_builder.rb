@@ -48,6 +48,14 @@ module Kazan
        'raise_delivery_errors = false', 'raise_delivery_errors = true'
     end
 
+    def exception_on_unpermitted_parameters
+      config = <<-RUBY
+    config.action_controller.action_on_unpermitted_parameters = :raise
+      RUBY
+
+      inject_into_class "config/application.rb", "Application", config
+    end
+
     def letter_opener_config
       letter_opener_settings = <<-RUBY
   # Letter opener settings

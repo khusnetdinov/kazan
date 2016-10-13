@@ -53,6 +53,7 @@ module Kazan
     def setup_development_environment
       say 'Setup development environment'
       build :exception_on_delivery_errors
+      build :exception_on_unpermitted_parameters
       build :letter_opener_config
       build :bullet_config
     end
