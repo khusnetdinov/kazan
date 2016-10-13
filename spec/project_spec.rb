@@ -22,8 +22,6 @@ RSpec.describe 'Project with configuration' do
     '.ruby-version',
     '.gitignore',
     '.env.development',
-    '.env.test',
-    '.env.staging',
     '.env.production',
   ]
 
