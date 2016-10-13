@@ -56,6 +56,7 @@ module Kazan
       build :exception_on_unpermitted_parameters
       build :letter_opener_config
       build :bullet_config
+      build :rails_generators_config
     end
 
     def setup_test_environment

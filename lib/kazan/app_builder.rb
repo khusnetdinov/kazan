@@ -51,9 +51,10 @@ module Kazan
     def exception_on_unpermitted_parameters
       config = <<-RUBY
     config.action_controller.action_on_unpermitted_parameters = :raise
+
       RUBY
 
-      inject_into_class "config/application.rb", "Application", config
+      inject_into_class 'config/application.rb', 'Application', config
     end
 
     def letter_opener_config
@@ -68,6 +69,23 @@ module Kazan
 
     def bullet_config
       template 'bullet.rb', 'config/initializers/bullet.rb'
+    end
+
+    def rails_generators_config
+      config = <<-RUBY
+    config.generators do |generate|
+      generate.helper false
+      generate.javascript_engine false
+      generate.request_specs false
+      generate.routing_specs false
+      generate.stylesheets false
+      generate.test_framework :rspec
+      generate.view_specs false
+    end
+
+      RUBY
+
+      inject_into_class 'config/application.rb', 'Application', config
     end
 
     def exception_on_missing_assets_in_test
