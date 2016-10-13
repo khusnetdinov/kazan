@@ -18,6 +18,7 @@ RSpec.describe 'Project with configuration' do
 
   SETTINGS = [
     'Gemfile',
+    'Procfile',
     'README.md',
     '.ruby-version',
     '.gitignore',
@@ -42,6 +43,7 @@ RSpec.describe 'Project with configuration' do
     'bullet',
     'bundler-audit',
     'dotenv',
+    'foreman',
     'letter_opener',
     'pg',
     'pry-byebug',

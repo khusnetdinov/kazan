@@ -60,6 +60,7 @@ module Kazan
       build :letter_opener_config
       build :bullet_config
       build :quiet_assets_config
+      build :foreman_config
       build :rails_generators_config
     end
 

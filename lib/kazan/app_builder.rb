@@ -85,6 +85,10 @@ module Kazan
       inject_into_class 'config/application.rb', 'Application', config
     end
 
+    def foreman_config
+      template 'Procfile.erb', 'Procfile'
+    end
+
     def rails_generators_config
       config = <<-RUBY
     config.generators do |generate|

@@ -45,6 +45,7 @@ It includes development gems:
   - [ByeBug](https://github.com/deivid-rodriguez/byebug) is a simple to use, feature rich debugger for Ruby 2.
   - [Bundler Audot](https://github.com/rubysec/bundler-audit) is patch-level verification for bundler.
   - [Bullet](https://github.com/flyerhzm/bullet) is designed to help you increase your application's performance by reducing the number of queries it makes.
+  - [Foreman](https://github.com/ddollar/foreman) procfile-based applications.
   - [Letter Opener](https://github.com/ryanb/letter_opener) previews email in the default browser instead of sending it.
   - [Listen](https://github.com/guard/listen) listens to file modifications and notifies you about the changes.
   - [Pry](https://github.com/rweng/pry-rails) for interactively exploring objects.
