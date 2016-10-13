@@ -10,19 +10,53 @@ RSpec.describe 'Project with configuration' do
     drop_app_database
   end
 
-  describe 'spring gem setup' do
+  BINSTUBS = [
+    'rake',
+    'rails',
+    'rspec'
+  ]
+
+  SETTINGS = [
+    'Gemfile',
+    'README.md',
+    '.ruby-version',
+    '.gitignore'
+  ]
+
+  CONFIGS = [
+    'database.yml',
+    'database.yml.example',
+    'puma.rb'
+  ]
+
+  INITIALIZERS = [
+  ]
+
+  GEMS = [
+    'rails',
+    'rack-mini-profiler',
+    'better_errors',
+    'annotate',
+    'awesome_print',
+    'pg',
+    'puma'
+  ]
+
+  describe 'spring bin' do
     subject { File }
 
     it { is_expected.to exist("#{project_path}/bin/spring") }
+  end
 
-    %w(rake rails rspec).each do |bin_stub|
-      it "#{bin_stub} bin stubs exist" do
-        expect(IO.read("#{project_path}/bin/#{bin_stub}")).to match(/spring/)
-      end
+  BINSTUBS.each do |bin_stub|
+    describe bin_stub do
+      subject { IO.read("#{project_path}/bin/#{bin_stub}") }
+
+      it { is_expected.to match(/spring/) }
     end
   end
 
-  %w(README.md .gitignore .ruby-version).each do |config|
+  SETTINGS.each do |config|
     describe config do
       subject { load_file config }
 
@@ -30,7 +64,7 @@ RSpec.describe 'Project with configuration' do
     end
   end
 
-  %w(database.yml database.yml.example puma.rb).each do |config|
+  CONFIGS.each do |config|
     describe config do
       subject { load_file "config/#{config}" }
 
@@ -38,24 +72,25 @@ RSpec.describe 'Project with configuration' do
     end
   end
 
-  # %w(simple_form.rb).each do |initializer|
-  #  describe initializer do
-  #    subject { load_file "config/initializers/#{initializer}" }
-  #
-  #    it { is_expected.to be_truthy }
-  #  end
-  # end
+  INITIALIZERS.each do |initializer|
+   describe initializer do
+     subject { load_file "config/initializers/#{initializer}" }
+
+     it { is_expected.to be_truthy }
+   end
+  end
+
+  # describe 'simple_from.rb' do
+    # subject { load_file 'config/initializers/simple_form.rb' }
+
+     # it { is_expected.to be_truthy }
+   # end
 
   describe 'Gemfile' do
     subject { load_file 'Gemfile' }
 
-    it { is_expected.to include %{source} }
-    it { is_expected.to include %{gem 'rails'} }
-    it { is_expected.to include %{gem 'rack-mini-profiler', require: false} }
-    it { is_expected.to include %{gem 'better_errors'} }
-    it { is_expected.to include %{gem 'annotate'} }
-    it { is_expected.to include %{gem 'awesome_print'} }
-    it { is_expected.to include %{gem 'pg'} }
-    it { is_expected.to include %{gem 'puma'} }
+    GEMS.each do |gem|
+      it { is_expected.to include gem }
+    end
   end
 end

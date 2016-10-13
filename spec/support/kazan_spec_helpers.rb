@@ -67,13 +67,5 @@ module KazanSpecHelpers
   def root_path
     File.expand_path('../../../', __FILE__)
   end
-
-  # def usage_file
-    # @usage_path ||= File.join(root_path, "USAGE")
-  # end
-
-  # def support_bin
-    # File.join(root_path, "spec", "fakes", "bin")
-  # end
 end
 
