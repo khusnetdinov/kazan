@@ -102,6 +102,11 @@ module Kazan
       inject_into_class 'config/application.rb', 'Application', config
     end
 
+    def bundler_audit_config
+      copy_file 'bundler_audit.rake', 'lib/tasks/bundler_audit.rake'
+      append_file 'Rakefile', %{\ntask default: 'bundler:audit'\n}
+    end
+
     def exception_on_missing_assets_in_test
       configure_environment 'test', 'config.assets.raise_runtime_errors = true'
     end

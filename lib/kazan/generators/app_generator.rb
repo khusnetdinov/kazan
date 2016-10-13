@@ -30,7 +30,7 @@ module Kazan
       # invoke :setup_routes
       # invoke :setup_git
       # invoke :setup_project_repository
-      # invoke :setup_bundler_audit
+      invoke :setup_bundler_audit
       invoke :setup_spring
       # invoke :outro
     end
@@ -72,6 +72,11 @@ module Kazan
       say 'Setup database'
       build :postgres_config if options[:database] == 'postgresql'
       build :database_tables
+    end
+
+    def setup_bundler_audit
+      say 'Setup bundler audit'
+      build :bundler_audit_config
     end
 
     def setup_spring

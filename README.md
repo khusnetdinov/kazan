@@ -43,6 +43,7 @@ It includes development gems:
   - [Awesome Print](https://github.com/awesome-print/awesome_print) prints pretty Ruby objects in full color exposing their internal structure with proper indentation.
   - [Better Errors](https://github.com/charliesome/better_errors) replaces the standard Rails error page with a much better and more useful error page.
   - [ByeBug](https://github.com/deivid-rodriguez/byebug) is a simple to use, feature rich debugger for Ruby 2.
+  - [Bundler Audot](https://github.com/rubysec/bundler-audit) is patch-level verification for bundler.
   - [Bullet](https://github.com/flyerhzm/bullet) is designed to help you increase your application's performance by reducing the number of queries it makes.
   - [Letter Opener](https://github.com/ryanb/letter_opener) previews email in the default browser instead of sending it.
   - [Listen](https://github.com/guard/listen) listens to file modifications and notifies you about the changes.

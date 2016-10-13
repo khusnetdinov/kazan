@@ -40,6 +40,7 @@ RSpec.describe 'Project with configuration' do
     'awesome_print',
     'better_errors',
     'bullet',
+    'bundler-audit',
     'dotenv',
     'letter_opener',
     'pg',
@@ -100,6 +101,12 @@ RSpec.describe 'Project with configuration' do
     GEMS.each do |gem|
       it { is_expected.to include gem }
     end
+  end
+
+  describe 'Rakefile' do
+    subject { load_file 'Rakefile' }
+
+    it { is_expected.to match(/bundler:audit/) }
   end
 
   describe 'application.rb' do
