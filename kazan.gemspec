@@ -15,8 +15,8 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/khusnetdinov/kazan'
   spec.license = 'MIT'
 
-  spec.summary = %q{}
-  spec.description = %q{}
+  spec.summary = %q{Kazan creates rails project and setups predefined gems and tools.}
+  spec.description = %q{Kazan creates rails project and setups predefined gems and tools.}
   spec.rdoc_options = ['--charset=UTF-8']
   spec.extra_rdoc_files = %w[README.md LICENSE]
 
