@@ -26,12 +26,12 @@ module Kazan
       # invoke :setup_assets
       # invoke :setup_miscellaneous_files
       # invoke :setup_views
-      invoke :setup_error_pages
       # invoke :setup_routes
-      # invoke :setup_git
-      # invoke :setup_project_repository
+      invoke :setup_error_pages
       invoke :setup_bundler_audit
       invoke :setup_spring
+      invoke :setup_empty_directories
+      invoke :setup_project_repository
       invoke :outro
     end
 
@@ -105,6 +105,7 @@ module Kazan
       build :static_pages
     end
 
+
     def setup_bundler_audit
       say 'Setup bundler audit'
       build :bundler_audit_config
@@ -113,6 +114,16 @@ module Kazan
     def setup_spring
       say 'Setup spring binstubs'
       build :spring
+    end
+
+    def setup_empty_directories
+      say 'Setup empty directories'
+      build :empty_directories
+    end
+
+    def setup_project_repository
+      say 'Setup git reposirory'
+      build :init_commit
     end
 
     def outro

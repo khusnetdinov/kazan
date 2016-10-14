@@ -211,6 +211,30 @@ module Kazan
       bundle_command 'exec spring binstub --all'
     end
 
+    def empty_directories
+      [
+        'app/services',
+        'app/policies',
+        'app/validations',
+        'app/views/shared',
+        'spec/controllers',
+        'spec/factories',
+        'spec/helpers',
+        'spec/models',
+        'spec/mailers',
+        'spec/requests',
+        'spec/routing',
+      ].each do |dir|
+        empty_directory_with_keep_file dir
+      end
+    end
+
+    def init_commit
+      run 'git init'
+      run 'git add .'
+      run 'git commit -m "Init commit"'
+    end
+
     private
 
     def exception_on_missing_translations_in(environment)
