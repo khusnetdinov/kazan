@@ -60,6 +60,7 @@ RSpec.describe 'Project with configuration' do
     'pry-rails',
     'puma',
     'rack-mini-profiler',
+    'rack-canonical-host',
     'rack-timeout',
     'recipient_interceptor',
     'rails',

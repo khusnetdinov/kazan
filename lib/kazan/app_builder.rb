@@ -190,6 +190,15 @@ module Kazan
       append_file 'config/environments/production.rb', rack_timeout_config
     end
 
+    def rack_canonical_host_config
+      config = <<-RUBY
+  config.middleware.use Rack::CanonicalHost, ENV.fetch("APPLICATION_HOST")
+      RUBY
+
+      inject_into_file "config/environments/production.rb", config,
+        after: "Rails.application.configure do"
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end

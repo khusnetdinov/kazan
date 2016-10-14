@@ -32,6 +32,7 @@ It includes applications gems:
   - [I18n](https://github.com/svenfuchs/rails-i18n) is central point to collect locale data for use in Ruby on Rails.
   - [PostgreSQL](https://www.postgresql.org/) database with [PG](https://rubygems.org/gems/pg/versions/0.18.4) adapter is used by defaul.
   - [Puma](http://puma.io/) is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications.
+  - [Rack Canonical Host](https://github.com/tylerhunt/rack-canonical-host) is middleware that lets you define a single host name as the canonical host for your application. Requests for other host names will then be redirected to the canonical host.
   - [Rack Timeout](https://github.com/heroku/rack-timeout) aborts requests that are taking too long; an exception is raised.
   - [Recepient Interceptor](https://github.com/croaky/recipient_interceptor) never accidentally send emails to real people from your staging environment.
   - [Rails 5.0.0](http://rubyonrails.org/)
