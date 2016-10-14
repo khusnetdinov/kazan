@@ -35,9 +35,9 @@ gem 'simple_form'
 <%# gem 'clockwork-test' %>
 
 <%# gem 'rollbar', '~> 2.8.0' %>
-<%# gem "recipient_interceptor" %>
+<%# gem 'recipient_interceptor' %>
 
-<%# gem "rack-canonical-host" %>
+<%# gem 'rack-canonical-host' %>
 gem 'puma'
 
 group :development do
@@ -59,18 +59,18 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
-<%# gem 'rspec-rails', '~> 3.5.0.beta4' %>
+  gem 'rspec-rails', '~> 3.5.0.beta4'
 end
 
 group :test do
-<%# gem 'capybara' %>
+  gem 'capybara'
   gem 'database_cleaner'
-<%# gem 'formulaic' %>
-<%# gem 'launchy' %>
+  gem 'formulaic'
+  gem 'launchy'
   gem 'shoulda-matchers'
-<%# gem 'simplecov', require: false %>
+  gem 'simplecov', require: false
   gem 'timecop'
-<%# gem 'webmock' %>
+  gem 'webmock'
 end
 
 group :development, :staging do

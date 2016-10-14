@@ -14,6 +14,10 @@ module Kazan
       template 'Gemfile.erb', 'Gemfile'
     end
 
+    def gemfile_api
+      template 'Gemfile.api.erb', 'Gemfile', force: true
+    end
+
     def ruby_version
       create_file '.ruby-version', "#{Kazan::RUBY_PROJECT_VERSION}\n"
     end
@@ -137,6 +141,15 @@ module Kazan
 
     def spec_factory_girl_config
       copy_file 'factory_girl.rb', 'spec/support/factory_girl.rb'
+    end
+
+    def rspec_config
+      generate 'rspec:install'
+    end
+
+    def rspec_replace_config
+      copy_file 'rails_helper.rb', 'spec/rails_helper.rb', force: true
+      copy_file 'spec_helper.rb', 'spec/spec_helper.rb', force: true
     end
 
     def spring

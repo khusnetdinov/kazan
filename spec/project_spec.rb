@@ -43,6 +43,7 @@ RSpec.describe 'Project with configuration' do
     'better_errors',
     'bullet',
     'bundler-audit',
+    'capybara',
     'config',
     'database_cleaner',
     'dotenv',
@@ -50,6 +51,8 @@ RSpec.describe 'Project with configuration' do
     'faker',
     'flutie',
     'foreman',
+    'formulaic',
+    'launchy',
     'letter_opener',
     'pg',
     'pry-byebug',
@@ -58,9 +61,17 @@ RSpec.describe 'Project with configuration' do
     'rack-mini-profiler',
     'rails',
     'rails-i18n',
+    'rspec-rails',
+    'simplecov',
     'shoulda-matchers',
     'timecop',
+    'webmock',
     'web-console'
+  ]
+
+  RSPEC = [
+    'rails_helper.rb',
+    'spec_helper.rb'
   ]
 
   SUPPORTS = [
@@ -113,6 +124,14 @@ RSpec.describe 'Project with configuration' do
 
      # it { is_expected.to be_truthy }
    # end
+
+  RSPEC.each do |helper|
+    describe helper do
+      subject { load_file "spec/#{helper}" }
+
+      it { is_expected.to be_truthy }
+    end
+  end
 
   SUPPORTS.each do |support|
     describe support do

@@ -44,18 +44,15 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
-<%# gem 'rspec-rails', '~> 3.5.0.beta4' %>
+  gem 'rspec-rails', '~> 3.5.0.beta4'
 end
 
 group :test do
-<%# gem 'capybara' %>
   gem 'database_cleaner'
-<%# gem 'formulaic' %>
-<%# gem 'launchy' %>
   gem 'shoulda-matchers'
-<%# gem 'simplecov', require: false %>
+  gem 'simplecov', require: false
   gem 'timecop'
-<%# gem 'webmock' %>
+  gem 'webmock'
 end
 
 group :development, :staging do

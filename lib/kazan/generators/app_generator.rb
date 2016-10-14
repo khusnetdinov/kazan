@@ -48,6 +48,8 @@ module Kazan
         build :simple_form_config
         build :rack_mini_profiler_config
       end
+
+      build :gemfile_api if options[:api]
     end
 
     def setup_secrets
@@ -79,6 +81,8 @@ module Kazan
       build :spec_database_cleaner_config
       build :spec_shoulda_matchers_config
       build :spec_factory_girl_config
+      build :rspec_config
+      build :rspec_replace_config
     end
 
     def setup_database

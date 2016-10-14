@@ -55,11 +55,17 @@ It includes development gems:
   - [Web Console](https://github.com/rails/web-console) [API EXCLUDED] is a debugging tool for your Ruby on Rails applications.
 
 It includes tests gems:
-
- - [Faker](https://github.com/stympy/faker) a port of Perl's Data::Faker library that generates fake data.
+ - [Capybara](https://github.com/jnicklas/capybara) [API EXCLUDED] helps you test web applications by simulating how a real user would interact with your app.
  - [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner) is a set of strategies for cleaning your database in Ruby.
+ - [Factory Girl](https://github.com/thoughtbot/factory_girl) is a fixtures replacement with a straightforward definition syntax.
+ - [Faker](https://github.com/stympy/faker) a port of Perl's Data::Faker library that generates fake data.
+ - [Formulaic](https://github.com/thoughtbot/formulaic) [API EXCLUDED] the tedium of formulaic form filling with Capybara.
+ - [Launchy](https://github.com/copiousfreetime/launchy) [API EXCLUDED] helper class for launching cross-platform applications in a fire and forget manner.
+ - [Rspec](https://github.com/rspec/rspec-rails) is a testing framework for Rails.
+ - [Simplecov](https://github.com/colszowka/simplecov) is a code coverage analysis tool for Ruby.
  - [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) provides RSpec- and Minitest-compatible one-liners that test common Rails functionality.
  - [Timecop](https://github.com/travisjeffery/timecop) providing "time travel" and "time freezing" capabilities, making it dead simple to test time-dependent code.
+ - [Web Mock](https://github.com/bblimke/webmock) for stubbing and setting expectations on HTTP requests in Ruby.
 
 ## Bonuses
 
