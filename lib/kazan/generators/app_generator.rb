@@ -90,6 +90,7 @@ module Kazan
       build :smtp_config
       build :rack_timeout_config
       build :rack_canonical_host_config
+      build :rack_deflater_config
     end
 
     def setup_database

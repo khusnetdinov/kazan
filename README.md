@@ -72,21 +72,20 @@ It includes tests gems:
 
 ## Bonuses
 
-  - TODO: The ./bin/setup convention for new developer setup
-  - TODO: A few nice time formats set up for localization
-  - t() and l() in specs without prefixing with I18n
-  - TODO: Rack::Deflater to compress responses with Gzip
-  - TODO: A low database connection pool limit
-  - [Safe binstubs] (https://github.com/thoughtbot/suspenders/pull/282)
+  - TODO: The ./bin/setup convention for new developer setup.
+  - t() and l() in specs without prefixing with I18n.
+  - [Rack::Deflater](https://robots.thoughtbot.com/content-compression-with-rack-deflater) to compress responses with Gzip.
+  - Low database connection pool limit.
+  - [Safe binstubs](https://github.com/thoughtbot/suspenders/pull/282)
 
-## Optional associate services
+## TODO
 
-- TODO: Gitlab CI
-- TODO: Gitlab Docker Registry
-
-## Other
-
-  TODO
+  - Gitlab CI
+  - Gitlab Docker Registry
+  - Docker Image
+  - Deploy Presettings
+  - Sidekiq -> sidekiq-failures, sinatra, rspec-sidekiq
+  - Clockwork -> whenever, clockwork, clockwork-test
 
 ## License
 

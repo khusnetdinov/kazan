@@ -199,6 +199,10 @@ module Kazan
         after: "Rails.application.configure do"
     end
 
+    def rack_deflater_config
+      configure_environment "production", "config.middleware.use Rack::Deflater"
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end
