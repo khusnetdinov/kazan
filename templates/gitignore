@@ -4,6 +4,7 @@
 *.swp
 /.bundle
 /.env.production
+/.env.development
 /coverage/*
 /db/*.sqlite3
 /log/*
