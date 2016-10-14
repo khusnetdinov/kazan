@@ -58,6 +58,7 @@ RSpec.describe 'Project with configuration' do
     'rails',
     'rails-i18n',
     'shoulda-matchers',
+    'timecop',
     'web-console'
   ]
 

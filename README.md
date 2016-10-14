@@ -59,6 +59,7 @@ It includes tests gems:
  - [Faker](https://github.com/stympy/faker) a port of Perl's Data::Faker library that generates fake data.
  - [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner) is a set of strategies for cleaning your database in Ruby.
  - [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) provides RSpec- and Minitest-compatible one-liners that test common Rails functionality.
+ - [Timecop](https://github.com/travisjeffery/timecop) providing "time travel" and "time freezing" capabilities, making it dead simple to test time-dependent code.
 
 ## Bonuses
 
