@@ -69,6 +69,11 @@ It includes tests gems:
 
 ## Bonuses
 
+  - TODO: The ./bin/setup convention for new developer setup
+  - TODO: A few nice time formats set up for localization
+  - t() and l() in specs without prefixing with I18n
+  - TODO: Rack::Deflater to compress responses with Gzip
+  - TODO: A low database connection pool limit
   - [Safe binstubs] (https://github.com/thoughtbot/suspenders/pull/282)
 
 ## Optional associate services

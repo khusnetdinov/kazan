@@ -22,7 +22,7 @@ RSpec.describe 'Project with configuration' do
     'README.md',
     '.ruby-version',
     '.gitignore',
-    '.env.development',
+    '.env.development.example',
     '.env.production',
   ]
 

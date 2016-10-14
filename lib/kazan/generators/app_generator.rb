@@ -26,7 +26,7 @@ module Kazan
       # invoke :setup_assets
       # invoke :setup_miscellaneous_files
       # invoke :setup_views
-      # invoke :setup_error_pages
+      invoke :setup_error_pages
       # invoke :setup_routes
       # invoke :setup_git
       # invoke :setup_project_repository
@@ -89,6 +89,11 @@ module Kazan
       say 'Setup database'
       build :postgres_config if options[:database] == 'postgresql'
       build :database_tables
+    end
+
+    def setup_error_pages
+      say 'Customizing the 500/404/422 pages'
+      build :static_pages
     end
 
     def setup_bundler_audit
