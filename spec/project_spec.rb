@@ -46,6 +46,7 @@ RSpec.describe 'Project with configuration' do
     'config',
     'database_cleaner',
     'dotenv',
+    'factory_girl_rails',
     'faker',
     'flutie',
     'foreman',

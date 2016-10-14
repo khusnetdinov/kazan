@@ -135,6 +135,10 @@ module Kazan
       copy_file 'shoulda_matchers.rb', 'spec/support/shoulda_matchers.rb'
     end
 
+    def spec_factory_girl_config
+      copy_file 'factory_girl.rb', 'spec/support/factory_girl.rb'
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end

@@ -78,6 +78,7 @@ module Kazan
       build :spec_action_mailer_config
       build :spec_database_cleaner_config
       build :spec_shoulda_matchers_config
+      build :spec_factory_girl_config
     end
 
     def setup_database
@@ -98,7 +99,6 @@ module Kazan
 
     def outro
       say 'Last preparation'
-      build :clean
     end
 
     protected
