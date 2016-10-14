@@ -30,7 +30,8 @@ RSpec.describe 'Project with configuration' do
     'database.yml',
     'database.yml.example',
     'puma.rb',
-    'settings.yml'
+    'settings.yml',
+    'smtp.rb'
   ]
 
   INITIALIZERS = [
@@ -59,6 +60,7 @@ RSpec.describe 'Project with configuration' do
     'pry-rails',
     'puma',
     'rack-mini-profiler',
+    'recipient_interceptor',
     'rails',
     'rails-i18n',
     'rspec-rails',

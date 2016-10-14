@@ -21,7 +21,7 @@ module Kazan
       invoke :setup_secrets
       invoke :setup_development_environment
       invoke :setup_test_environment
-      # invoke :setup_production_environment
+      invoke :setup_production_environment
       invoke :setup_database
       # invoke :setup_assets
       # invoke :setup_miscellaneous_files
@@ -83,6 +83,11 @@ module Kazan
       build :spec_factory_girl_config
       build :rspec_config
       build :rspec_replace_config
+    end
+
+    def setup_production_environment
+      say 'Setup production environment'
+      build :smtp_config
     end
 
     def setup_database

@@ -165,6 +165,22 @@ module Kazan
       copy_file 'spec_helper.rb', 'spec/spec_helper.rb', force: true
     end
 
+    def smtp_config
+      copy_file 'smtp.rb', 'config/smtp.rb'
+
+      prepend_file 'config/environments/production.rb',
+        %{require Rails.root.join("config/smtp")\n}
+
+      config = <<-RUBY
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = SMTP_SETTINGS
+
+      RUBY
+
+      inject_into_file 'config/environments/production.rb', config,
+        after: "config.action_mailer.raise_delivery_errors = false"
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end
