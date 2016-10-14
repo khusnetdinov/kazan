@@ -213,6 +213,8 @@ module Kazan
 
     def empty_directories
       [
+        'app/controllers/api',
+        'app/controllers/web',
         'app/services',
         'app/policies',
         'app/validations',

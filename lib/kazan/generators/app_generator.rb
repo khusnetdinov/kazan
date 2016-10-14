@@ -9,6 +9,7 @@ module Kazan
       desc: "Configure for selected database (options: #{DATABASES.join("/")})"
 
     class_option :skip_test, type: :string, default: '--skip-test-unit'
+    class_option :skip_action_cable, type: :string, default: '--skip-action-cable'
 
     def finish_template
       invoke :customization
@@ -23,10 +24,11 @@ module Kazan
       invoke :setup_test_environment
       invoke :setup_production_environment
       invoke :setup_database
+
       # invoke :setup_assets
       # invoke :setup_miscellaneous_files
       # invoke :setup_views
-      # invoke :setup_routes
+
       invoke :setup_error_pages
       invoke :setup_bundler_audit
       invoke :setup_spring
