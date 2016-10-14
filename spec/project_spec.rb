@@ -45,6 +45,7 @@ RSpec.describe 'Project with configuration' do
     'bundler-audit',
     'config',
     'dotenv',
+    'faker',
     'flutie',
     'foreman',
     'letter_opener',
