@@ -69,6 +69,7 @@ module Kazan
       say 'Setup test environment'
       build :exception_on_missing_assets_in_test
       build :spec_translations_config
+      build :spec_action_mailer_config
     end
 
     def setup_database

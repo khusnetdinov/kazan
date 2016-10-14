@@ -123,6 +123,10 @@ module Kazan
       copy_file 'i18n.rb', 'spec/support/i18n.rb'
     end
 
+    def spec_action_mailer_config
+      copy_file 'action_mailer.rb', 'spec/support/action_mailer.rb'
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end

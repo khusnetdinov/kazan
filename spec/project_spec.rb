@@ -59,7 +59,8 @@ RSpec.describe 'Project with configuration' do
   ]
 
   SUPPORTS = [
-    'i18n.rb'
+    'i18n.rb',
+    'action_mailer.rb'
   ]
 
   describe 'spring bin' do
