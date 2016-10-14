@@ -73,7 +73,6 @@ It includes tests gems:
 
 ## Bonuses
 
-  - TODO: The ./bin/setup convention for new developer setup.
   - t() and l() in specs without prefixing with I18n.
   - [Rack::Deflater](https://robots.thoughtbot.com/content-compression-with-rack-deflater) to compress responses with Gzip.
   - Low database connection pool limit.
