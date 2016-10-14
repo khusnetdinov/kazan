@@ -181,6 +181,15 @@ module Kazan
         after: "config.action_mailer.raise_delivery_errors = false"
     end
 
+    def rack_timeout_config
+      rack_timeout_config = <<-RUBY
+  Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
+
+      RUBY
+
+      append_file 'config/environments/production.rb', rack_timeout_config
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end

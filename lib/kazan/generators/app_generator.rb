@@ -88,6 +88,7 @@ module Kazan
     def setup_production_environment
       say 'Setup production environment'
       build :smtp_config
+      build :rack_timeout_config
     end
 
     def setup_database

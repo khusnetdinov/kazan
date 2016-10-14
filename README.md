@@ -32,6 +32,8 @@ It includes applications gems:
   - [I18n](https://github.com/svenfuchs/rails-i18n) is central point to collect locale data for use in Ruby on Rails.
   - [PostgreSQL](https://www.postgresql.org/) database with [PG](https://rubygems.org/gems/pg/versions/0.18.4) adapter is used by defaul.
   - [Puma](http://puma.io/) is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications.
+  - [Rack Timeout](https://github.com/heroku/rack-timeout) aborts requests that are taking too long; an exception is raised.
+  - [Recepient Interceptor](https://github.com/croaky/recipient_interceptor) never accidentally send emails to real people from your staging environment.
   - [Rails 5.0.0](http://rubyonrails.org/)
   - [Rails Config](https://github.com/railsconfig/config) helps you easily manage environment specific settings in an easy and usable manner.
   - [Simple From](https://github.com/plataformatec/simple_form) [API EXCLUDED] aims to be as flexible as possible while helping you with powerful components to create your forms.
