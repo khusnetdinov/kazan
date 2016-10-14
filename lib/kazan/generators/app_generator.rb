@@ -32,7 +32,7 @@ module Kazan
       # invoke :setup_project_repository
       invoke :setup_bundler_audit
       invoke :setup_spring
-      # invoke :outro
+      invoke :outro
     end
 
     def setup_ruby
@@ -41,10 +41,13 @@ module Kazan
     end
 
     def setup_gems
-     say 'Setup gems'
-     build :simple_form_config
-     build :rack_mini_profiler_config
-     build :puma_config
+      say 'Setup gems'
+      build :puma_config
+
+      unless options[:api]
+        build :simple_form_config
+        build :rack_mini_profiler_config
+      end
     end
 
     def setup_secrets
@@ -60,9 +63,12 @@ module Kazan
       build :exception_on_missing_translations
       build :letter_opener_config
       build :bullet_config
-      build :quiet_assets_config
       build :foreman_config
       build :rails_generators_config
+
+      unless options[:api]
+        build :quiet_assets_config
+      end
     end
 
     def setup_test_environment
@@ -88,6 +94,11 @@ module Kazan
     def setup_spring
       say 'Setup spring binstubs'
       build :spring
+    end
+
+    def outro
+      say 'Last preparation'
+      build :clean
     end
 
     protected
