@@ -35,7 +35,8 @@ RSpec.describe 'Project with configuration' do
   ]
 
   INITIALIZERS = [
-    'bullet.rb'
+    'bullet.rb',
+    'rollbar.rb'
   ]
 
   GEMS = [
@@ -65,6 +66,7 @@ RSpec.describe 'Project with configuration' do
     'recipient_interceptor',
     'rails',
     'rails-i18n',
+    'rollbar',
     'rspec-rails',
     'simplecov',
     'shoulda-matchers',

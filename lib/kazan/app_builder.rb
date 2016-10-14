@@ -203,6 +203,10 @@ module Kazan
       configure_environment "production", "config.middleware.use Rack::Deflater"
     end
 
+    def rollbar_config
+      copy_file 'rollbar.rb', 'config/initializers/rollbar.rb'
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end

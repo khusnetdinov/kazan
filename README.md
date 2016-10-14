@@ -37,6 +37,7 @@ It includes applications gems:
   - [Recepient Interceptor](https://github.com/croaky/recipient_interceptor) never accidentally send emails to real people from your staging environment.
   - [Rails 5.0.0](http://rubyonrails.org/)
   - [Rails Config](https://github.com/railsconfig/config) helps you easily manage environment specific settings in an easy and usable manner.
+  - [Rollbar](https://rollbar.com/) error monitoring fits right into your continuous delivery and deployment workflows to provide confidence in every code release.
   - [Simple From](https://github.com/plataformatec/simple_form) [API EXCLUDED] aims to be as flexible as possible while helping you with powerful components to create your forms.
 
 It includes assets gems [API EXCLUDED]:

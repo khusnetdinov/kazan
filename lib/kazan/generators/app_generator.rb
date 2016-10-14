@@ -91,6 +91,7 @@ module Kazan
       build :rack_timeout_config
       build :rack_canonical_host_config
       build :rack_deflater_config
+      build :rollbar_config
     end
 
     def setup_database
