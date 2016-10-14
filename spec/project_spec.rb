@@ -44,6 +44,7 @@ RSpec.describe 'Project with configuration' do
     'bullet',
     'bundler-audit',
     'config',
+    'database_cleaner',
     'dotenv',
     'faker',
     'flutie',
@@ -60,8 +61,9 @@ RSpec.describe 'Project with configuration' do
   ]
 
   SUPPORTS = [
-    'i18n.rb',
-    'action_mailer.rb'
+    'action_mailer.rb',
+    'database_cleaner.rb',
+    'i18n.rb'
   ]
 
   describe 'spring bin' do

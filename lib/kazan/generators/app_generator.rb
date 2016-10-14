@@ -70,6 +70,7 @@ module Kazan
       build :exception_on_missing_assets_in_test
       build :spec_translations_config
       build :spec_action_mailer_config
+      build :spec_database_cleaner_config
     end
 
     def setup_database

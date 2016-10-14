@@ -127,6 +127,10 @@ module Kazan
       copy_file 'action_mailer.rb', 'spec/support/action_mailer.rb'
     end
 
+    def spec_database_cleaner_config
+      copy_file 'database_cleaner.rb', 'spec/support/database_cleaner.rb'
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end
