@@ -71,6 +71,7 @@ module Kazan
       build :spec_translations_config
       build :spec_action_mailer_config
       build :spec_database_cleaner_config
+      build :spec_shoulda_matchers_config
     end
 
     def setup_database

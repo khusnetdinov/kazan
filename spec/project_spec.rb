@@ -57,13 +57,15 @@ RSpec.describe 'Project with configuration' do
     'rack-mini-profiler',
     'rails',
     'rails-i18n',
+    'shoulda-matchers',
     'web-console'
   ]
 
   SUPPORTS = [
     'action_mailer.rb',
     'database_cleaner.rb',
-    'i18n.rb'
+    'i18n.rb',
+    'shoulda_matchers.rb'
   ]
 
   describe 'spring bin' do

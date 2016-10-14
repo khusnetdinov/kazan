@@ -131,6 +131,10 @@ module Kazan
       copy_file 'database_cleaner.rb', 'spec/support/database_cleaner.rb'
     end
 
+    def spec_shoulda_matchers_config
+      copy_file 'shoulda_matchers.rb', 'spec/support/shoulda_matchers.rb'
+    end
+
     def spring
       bundle_command 'exec spring binstub --all'
     end
