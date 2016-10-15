@@ -25,9 +25,9 @@ module Kazan
       invoke :setup_production_environment
       invoke :setup_database
 
-      # invoke :setup_assets
-      # invoke :setup_miscellaneous_files
-      # invoke :setup_views
+      unless options[:api]
+        invoke :setup_assets
+      end
 
       invoke :setup_error_pages
       invoke :setup_bundler_audit
@@ -100,6 +100,12 @@ module Kazan
       say 'Setup database'
       build :postgres_config if options[:database] == 'postgresql'
       build :database_tables
+    end
+
+    def setup_assets
+      say 'Setup assets'
+      build :shared_views_directory
+      build :shared_flashes_views
     end
 
     def setup_error_pages

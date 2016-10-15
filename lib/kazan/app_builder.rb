@@ -43,6 +43,14 @@ module Kazan
       bundle_command 'exec rake db:create db:migrate'
     end
 
+    def shared_views_directory
+      empty_directory 'app/views/layouts/shared'
+    end
+
+    def shared_flash_views
+
+    end
+
     def dotenvs
       directory 'envs', '.'
     end
