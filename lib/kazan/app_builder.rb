@@ -47,8 +47,20 @@ module Kazan
       empty_directory 'app/views/layouts/shared'
     end
 
-    def shared_flash_views
+    def shared_flash
+      copy_file "_flashes.html.erb", "app/views/layouts/shared/_flashes.html.erb"
+      copy_file "flashes_helper.rb", "app/helpers/flashes_helper.rb"
+    end
 
+    def shared_javascript
+      copy_file "_javascript.html.erb", "app/views/layouts/shared/_javascript.html.erb"
+    end
+
+    def shared_styles
+      copy_file "_styles.html.erb", "app/views/layouts/shared/_styles.html.erb"
+    end
+
+    def shared_layout
     end
 
     def dotenvs

@@ -105,7 +105,9 @@ module Kazan
     def setup_assets
       say 'Setup assets'
       build :shared_views_directory
-      build :shared_flashes_views
+      build :shared_flash
+      build :shared_javascript
+      build :shared_styles
     end
 
     def setup_error_pages

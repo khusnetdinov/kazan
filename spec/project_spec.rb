@@ -87,6 +87,12 @@ RSpec.describe 'Project with configuration' do
     'shoulda_matchers.rb'
   ]
 
+  VIEWS = [
+    '_flashes.html.erb',
+    '_javascript.html.erb',
+    '_styles.html.erb'
+  ]
+
   describe 'spring bin' do
     subject { File }
 
@@ -142,6 +148,14 @@ RSpec.describe 'Project with configuration' do
   SUPPORTS.each do |support|
     describe support do
       subject { load_file "spec/support/#{support}" }
+
+      it { is_expected.to be_truthy }
+    end
+  end
+
+  VIEWS.each do |view|
+    describe view do
+      subject { load_file "app/views/layouts/shared/#{view}" }
 
       it { is_expected.to be_truthy }
     end
