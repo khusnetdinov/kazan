@@ -85,10 +85,7 @@ It includes tests gems:
 
 ## TODO
 
-  - Gitlab CI
-  - Gitlab Docker Registry
-  - Docker Image
-  - Deploy Presettings
+  - Docker Image for deploy
   - Sidekiq -> sidekiq-failures, sinatra, rspec-sidekiq
   - Clockwork -> whenever, clockwork, clockwork-test
 
