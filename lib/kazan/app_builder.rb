@@ -141,10 +141,16 @@ module Kazan
       inject_into_class 'config/application.rb', 'Application', config
     end
 
-    def stylesheet_gems
-      gem 'bourbon', '5.0.0.beta.6'
-      gem 'neat', '~> 1.8.0'
-      gem 'refills', group: [:development, :test]
+    def stylesheets_gems
+      gems = <<-RUBY
+
+gem 'bourbon', '5.0.0.beta.6'
+gem 'neat', '~> 1.8.0'
+gem 'refills', group: [:development, :test]
+      RUBY
+
+      inject_into_file 'Gemfile', gems,
+        after: "gem 'sass-rails', '~> 5.0'\n"
 
       Bundler.with_clean_env { run 'bundle install' }
     end
