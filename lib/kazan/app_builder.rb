@@ -266,6 +266,7 @@ module Kazan
 
     def empty_directories
       [
+        'app/assets/fonts',
         'app/controllers/api',
         'app/controllers/web',
         'app/services',
