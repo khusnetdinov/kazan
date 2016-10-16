@@ -5,11 +5,15 @@ module Kazan
   class AppGenerator < Rails::Generators::AppGenerator
     hide!
 
-    class_option :database, type: :string, aliases: "-d", default: "postgresql",
+    class_option :database, type: :string, aliases: '-d', default: 'postgresql',
       desc: "Configure for selected database (options: #{DATABASES.join("/")})"
 
     class_option :skip_test, type: :string, default: '--skip-test-unit'
     class_option :skip_action_cable, type: :string, default: '--skip-action-cable'
+
+    class_option :sidekiq, type: :string, default: ''
+    class_option :clockwork, type: :string, default: ''
+    class_option :static, type: :string, default: ''
 
     def finish_template
       invoke :customization
@@ -20,6 +24,7 @@ module Kazan
       invoke :setup_ruby
       invoke :setup_gems
       invoke :setup_secrets
+      invoke :setup_puma
       invoke :setup_development_environment
       invoke :setup_test_environment
       invoke :setup_production_environment
@@ -27,7 +32,12 @@ module Kazan
 
       unless options[:api]
         invoke :setup_assets
+        invoke :setup_helpers
       end
+
+      # build :setup_clockwork if options[:clockwork]
+      # build :setup_sidekiq if options[:sidekiq]
+      # build :setup_static if options[:static]
 
       invoke :setup_error_pages
       invoke :setup_bundler_audit
@@ -44,13 +54,6 @@ module Kazan
 
     def setup_gems
       say 'Setup gems'
-      build :puma_config
-
-      unless options[:api]
-        build :simple_form_config
-        build :rack_mini_profiler_config
-      end
-
       build :gemfile_api if options[:api]
     end
 
@@ -58,6 +61,11 @@ module Kazan
       say 'Setup secrets'
       build :dotenvs
       build :settings
+    end
+
+    def setup_puma
+      say 'Setup pema'
+      build :puma_config
     end
 
     def setup_development_environment
@@ -111,11 +119,15 @@ module Kazan
       build :assets_config
     end
 
+    def setup_helpers
+      build :simple_form_config
+      build :rack_mini_profiler_config
+    end
+
     def setup_error_pages
       say 'Customizing the 500/404/422 pages'
       build :static_pages
     end
-
 
     def setup_bundler_audit
       say 'Setup bundler audit'

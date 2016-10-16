@@ -1,7 +1,7 @@
 require 'rails/generators'
 
 module Kazan
-  class StaticGenerator
+  class SidekiqGenerator < Rails::Generators::Base
 
   end
 end
