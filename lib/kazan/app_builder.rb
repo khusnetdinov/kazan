@@ -141,6 +141,32 @@ module Kazan
       inject_into_class 'config/application.rb', 'Application', config
     end
 
+    def stylesheet_gems
+      gem 'bourbon', '5.0.0.beta.6'
+      gem 'neat', '~> 1.8.0'
+      gem 'refills', group: [:development, :test]
+
+      Bundler.with_clean_env { run 'bundle install' }
+    end
+
+    def stylesheets_manifest
+      remove_file 'app/assets/stylesheets/application.css'
+      copy_file(
+        'application.scss',
+        'app/assets/stylesheets/application.scss',
+        force: true,
+      )
+    end
+
+    def refills
+      generate 'refills:import', 'flashes'
+      remove_dir 'app/views/refills'
+    end
+
+    def bitters
+      run 'bitters install --path app/assets/stylesheets'
+    end
+
     def static_pages
       meta_tags = <<-EOS
     <meta charset="utf-8" />

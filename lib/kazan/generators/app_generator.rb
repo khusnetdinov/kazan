@@ -35,9 +35,9 @@ module Kazan
         invoke :setup_helpers
       end
 
-      # build :setup_clockwork if options[:clockwork]
-      # build :setup_sidekiq if options[:sidekiq]
-      # build :setup_static if options[:static]
+      invoke :setup_clockwork if options[:clockwork]
+      invoke :setup_sidekiq if options[:sidekiq]
+      invoke :setup_static if options[:static]
 
       invoke :setup_error_pages
       invoke :setup_bundler_audit
@@ -64,7 +64,7 @@ module Kazan
     end
 
     def setup_puma
-      say 'Setup pema'
+      say 'Setup puma'
       build :puma_config
     end
 
@@ -122,6 +122,21 @@ module Kazan
     def setup_helpers
       build :simple_form_config
       build :rack_mini_profiler_config
+    end
+
+    def setup_clockwork
+    end
+
+    def setup_sidekiq
+    end
+
+    def setup_static
+      say 'Setup static'
+
+      build :stylesheets_gems
+      build :stylesheets_manifest
+      build :refils
+      build :bitters
     end
 
     def setup_error_pages
