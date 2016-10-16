@@ -58,6 +58,7 @@ RSpec.describe 'Project with configuration' do
     'flutie',
     'foreman',
     'formulaic',
+    'jquery-rails',
     'launchy',
     'letter_opener',
     'normalize-rails',
@@ -76,9 +77,12 @@ RSpec.describe 'Project with configuration' do
     'sass-rails',
     'simplecov',
     'shoulda-matchers',
+    'sprockets', '>= 3.0.0',
+    'sprockets-es6',
     'timecop',
     'webmock',
-    'web-console'
+    'web-console',
+    'uglifier'
   ]
 
   RSPEC = [
