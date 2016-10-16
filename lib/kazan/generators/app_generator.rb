@@ -108,6 +108,7 @@ module Kazan
       build :shared_flash
       build :shared_javascript
       build :shared_styles
+      build :assets_config
     end
 
     def setup_error_pages

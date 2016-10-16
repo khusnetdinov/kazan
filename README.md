@@ -42,6 +42,10 @@ It includes applications gems:
 
 It includes assets gems [API EXCLUDED]:
 
+  - [Autoprefixer Rails](https://github.com/ai/autoprefixer-rails) is a tool to parse CSS and add vendor prefixes to CSS rules using values from the [Can I Use](http://caniuse.com/).
+  - [Normalize Css](https://necolas.github.io/normalize.css/) makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
+  - [Sass](http://sass-lang.com/) is the most mature, stable, and powerful professional grade CSS extension language in the world.
+
 It includes development gems:
 
   - [Annotate](https://github.com/ctran/annotate_models) adds a comment summarizing the current schema.

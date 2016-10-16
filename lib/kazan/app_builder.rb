@@ -48,19 +48,26 @@ module Kazan
     end
 
     def shared_flash
-      copy_file "_flashes.html.erb", "app/views/layouts/shared/_flashes.html.erb"
-      copy_file "flashes_helper.rb", "app/helpers/flashes_helper.rb"
+      copy_file '_flashes.html.erb', 'app/views/layouts/shared/_flashes.html.erb'
+      copy_file 'flashes_helper.rb', 'app/helpers/flashes_helper.rb'
     end
 
     def shared_javascript
-      copy_file "_javascript.html.erb", "app/views/layouts/shared/_javascript.html.erb"
+      copy_file '_javascript.html.erb', 'app/views/layouts/shared/_javascript.html.erb'
     end
 
     def shared_styles
-      copy_file "_styles.html.erb", "app/views/layouts/shared/_styles.html.erb"
+      copy_file '_styles.html.erb', 'app/views/layouts/shared/_styles.html.erb'
     end
 
     def shared_layout
+      copy_file 'application.html.erb', 'app/views/layouts/application.html.erb', force: true
+    end
+
+    def assets_config
+      copy_file 'browserslist', 'app/assets/stylesheets/browserslist'
+      copy_file 'errors.rb', 'config/initializers/errors.rb'
+      copy_file 'json_encoding.rb', 'config/initializers/json_encoding.rb'
     end
 
     def dotenvs

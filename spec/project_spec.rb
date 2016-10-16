@@ -20,6 +20,7 @@ RSpec.describe 'Project with configuration' do
     'Gemfile',
     'Procfile',
     'README.md',
+    # 'browserList',
     '.ruby-version',
     '.gitignore',
     '.env.development.example',
@@ -36,11 +37,14 @@ RSpec.describe 'Project with configuration' do
 
   INITIALIZERS = [
     'bullet.rb',
+    'errors.rb',
+    'json_encoding.rb',
     'rollbar.rb'
   ]
 
   GEMS = [
     'annotate',
+    'autoprefixer-rails',
     'awesome_print',
     'better_errors',
     'bullet',
@@ -56,6 +60,7 @@ RSpec.describe 'Project with configuration' do
     'formulaic',
     'launchy',
     'letter_opener',
+    'normalize-rails',
     'pg',
     'pry-byebug',
     'pry-rails',
@@ -68,6 +73,7 @@ RSpec.describe 'Project with configuration' do
     'rails-i18n',
     'rollbar',
     'rspec-rails',
+    'sass-rails',
     'simplecov',
     'shoulda-matchers',
     'timecop',
