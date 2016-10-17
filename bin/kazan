@@ -14,9 +14,6 @@ if ARGV.empty?
 elsif ['-v', '--version'].include? ARGV[0]
   puts Kazan::VERSION
   exit 0
-elsif ['ruby'].include?(ARGV[0]) && ['-v', '--version'].include?(ARGV[1])
-  puts Kazan::RUBY_PROJECT_VERSION
-  exit 0
 elsif ['rails'].include?(ARGV[0]) && ['-v', '--version'].include?(ARGV[1])
   puts Kazan::RAILS_VERSION
   exit 0
