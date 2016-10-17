@@ -23,10 +23,9 @@ This generator maps all flags to rails native generator, for example you can cre
     $ kazan projectname --api
 
 See all gems that will be installed to project in [Gemfile](https://github.com/khusnetdinov/kazan/blob/master/templates/Gemfile.erb) for web application or for api [Gemfile.api](https://github.com/khusnetdinov/kazan/blob/master/templates/Gemfile.api.erb).
+
 ## Options
 
-  - TODO: `--clockwork` to use [Clockwork]().
-  - TODO: `--sidekiq` to use [Sidekiq]().
   - `--static` to use [Bitters](https://github.com/thoughtbot/bitters), [Bourbon](https://github.com/thoughtbot/bourbon), [Neat](https://github.com/thoughtbot/neat), [Refills](https://github.com/thoughtbot/refills).
 
 ## Gems
