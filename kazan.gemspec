@@ -6,7 +6,6 @@ require 'date'
 
 Gem::Specification.new do |spec|
   spec.version = Kazan::VERSION
-  spec.required_ruby_version = "2.3.1"
 
   spec.name = 'kazan'
 
