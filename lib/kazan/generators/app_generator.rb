@@ -21,6 +21,7 @@ module Kazan
     end
 
     def customization
+      invoke :setup_gitignore
       invoke :setup_ruby
       invoke :setup_gems
       invoke :setup_secrets
@@ -35,8 +36,6 @@ module Kazan
         invoke :setup_helpers
       end
 
-      invoke :setup_clockwork if options[:clockwork]
-      invoke :setup_sidekiq if options[:sidekiq]
       invoke :setup_static if options[:static]
 
       invoke :setup_error_pages
@@ -45,6 +44,12 @@ module Kazan
       invoke :setup_empty_directories
       invoke :setup_project_repository
       invoke :outro
+    end
+
+    def setup_gitignore
+      say 'Setup gitignore'
+
+      build :gitignore
     end
 
     def setup_ruby
@@ -122,12 +127,6 @@ module Kazan
     def setup_helpers
       build :simple_form_config
       build :rack_mini_profiler_config
-    end
-
-    def setup_clockwork
-    end
-
-    def setup_sidekiq
     end
 
     def setup_static
