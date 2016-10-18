@@ -21,7 +21,6 @@ module Kazan
     end
 
     def customization
-      invoke :setup_gitignore
       invoke :setup_ruby
       invoke :setup_gems
       invoke :setup_secrets
@@ -44,12 +43,6 @@ module Kazan
       invoke :setup_empty_directories
       invoke :setup_project_repository
       invoke :outro
-    end
-
-    def setup_gitignore
-      say 'Setup gitignore'
-
-      build :gitignore
     end
 
     def setup_ruby
@@ -132,6 +125,7 @@ module Kazan
     def setup_static
       say 'Setup static'
 
+      build :remove_turbolinks
       build :stylesheets_gems
       build :stylesheets_manifest
       build :refils

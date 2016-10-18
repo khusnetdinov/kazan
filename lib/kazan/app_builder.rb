@@ -141,6 +141,14 @@ module Kazan
       inject_into_class 'config/application.rb', 'Application', config
     end
 
+    def remove_turbolinks
+      replace_in_file(
+        "app/assets/javascripts/application.js",
+        "//= require turbolinks",
+        ""
+      )
+    end
+
     def stylesheets_gems
       gems = <<-RUBY
 
