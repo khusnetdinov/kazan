@@ -5,6 +5,7 @@
 /.bundle
 /.env.production
 /.env.development
+/config/database.yml
 /coverage/*
 /db/*.sqlite3
 /log/*

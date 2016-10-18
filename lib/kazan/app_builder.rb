@@ -7,7 +7,7 @@ module Kazan
     end
 
     def gitignore
-      copy_file 'gitignore', '.gitignore'
+      copy_file 'project_gitignore', '.gitignore', force: true
     end
 
     def gemfile
