@@ -1,11 +1,11 @@
-workers Integer(ENV.fetch("PUMA_WORKERS", 2))
-threads_count = Integer(ENV.fetch("PUMA_THREADS", 2))
+workers Integer(ENV.fetch('PUMA_WORKERS'))
+threads_count = Integer(ENV.fetch('PUMA_THREADS'))
 threads(threads_count, threads_count)
 
 preload_app!
 
 rackup DefaultRackup
-environment ENV.fetch('RACK_ENV', 'development')
+environment String(ENV.fetch('RACK_ENV', 'development'))
 
 on_worker_boot do
   # Worker specific setup for Rails 4.1+
