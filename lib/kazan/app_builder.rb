@@ -72,6 +72,7 @@ module Kazan
 
     def dotenvs
       directory 'envs', '.'
+      copy_file 'envs/.env.development.example', '.env.development'
     end
 
     def settings

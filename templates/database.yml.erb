@@ -2,18 +2,18 @@ settings: &settings
   adapter: postgresql
   encoding: utf8
   min_messages: warning
-  timeout: <%%= Integer(ENV.fetch('DATABASE_TIMEOUT'))%>
-  pool: <%%= Integer(ENV.fetch('DATABASE_POOL'))%>
+  timeout: <%%= Integer(ENV.fetch('DATABASE_TIMEOUT', 5000))%>
+  pool: <%%= Integer(ENV.fetch('DATABASE_POOL', 5))%>
 
 
 development:
   <<: *settings
-  reaping_frequency: <%%= Integer(ENV.fetch('DATABASE_REAPING_FREQUENCY'))%>
+  reaping_frequency: <%%= Integer(ENV.fetch('DATABASE_REAPING_FREQUENCY', 10))%>
   database: <%= app_name %>_development
 
 test:
   <<: *settings
-  reaping_frequency: <%%= Integer(ENV.fetch('DATABASE_REAPING_FREQUENCY'))%>
+  reaping_frequency: <%%= Integer(ENV.fetch('DATABASE_REAPING_FREQUENCY', 10))%>
   database: <%= app_name %>_test
 
 staging:
