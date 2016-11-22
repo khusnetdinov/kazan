@@ -306,6 +306,16 @@ gem 'refills', group: [:development, :test]
       run 'git commit -m "Init commit"'
     end
 
+    def config_sandboxes
+      server_hook = <<-RUBY
+require 'rails/cmmands/server'
+require_relative '../config/sandboxes'
+      RUBY
+
+      inject_into_file "bin/rails", server_hook, after: "require_relative '../config/boot'\n"
+      copy_file 'sandboxes.rb', 'config/sandboxes.rb', force: true
+    end
+
     private
 
     def exception_on_missing_translations_in(environment)

@@ -11,6 +11,7 @@ module Kazan
     class_option :skip_test, type: :string, default: '--skip-test-unit'
     class_option :skip_action_cable, type: :string, default: '--skip-action-cable'
 
+    class_option :sandboxes, type: :string, default: ''
     class_option :sidekiq, type: :string, default: ''
     class_option :clockwork, type: :string, default: ''
     class_option :static, type: :string, default: ''
@@ -36,12 +37,14 @@ module Kazan
       end
 
       invoke :setup_static if options[:static]
+      invoke :setup_sandboxes if options[:sandboxes]
 
       invoke :setup_error_pages
       invoke :setup_bundler_audit
       invoke :setup_spring
       invoke :setup_empty_directories
       invoke :setup_project_repository
+
       invoke :outro
     end
 
@@ -145,6 +148,11 @@ module Kazan
     def setup_spring
       say 'Setup spring binstubs'
       build :spring
+    end
+
+    def setup_sandboxes
+      say 'Setup sandboxes for production'
+      build :config_sandboxes
     end
 
     def setup_empty_directories
