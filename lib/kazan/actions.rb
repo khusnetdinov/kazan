@@ -18,16 +18,14 @@ module Kazan
       inject_into_file(
         "config/application.rb",
         "\n\n    #{config}",
-        before: "\n  end"
-      )
+        before: "\n  end")
     end
 
     def configure_environment(rails_env, config)
       inject_into_file(
         "config/environments/#{rails_env}.rb",
         "\n\n  #{config}",
-        before: "\nend"
-      )
+        before: "\nend")
     end
   end
 end

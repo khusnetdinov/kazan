@@ -30,14 +30,12 @@ module Kazan
       invoke :setup_production_environment
       invoke :setup_database
 
-      unless options[:api]
-        invoke :setup_assets
-        invoke :setup_helpers
-      end
-
-      invoke :setup_static if options[:static]
-
+      invoke :setup_assets
+      invoke :setup_helpers
       invoke :setup_error_pages
+
+      invoke :setup_static
+
       invoke :setup_bundler_audit
       invoke :setup_spring
       invoke :setup_empty_directories
@@ -51,8 +49,10 @@ module Kazan
     end
 
     def setup_gems
-      say 'Setup gems'
-      build :gemfile_api if options[:api]
+      if options[:api]
+        say 'Setup gems'
+        build :gemfile_api
+      end
     end
 
     def setup_secrets
@@ -109,32 +109,40 @@ module Kazan
     end
 
     def setup_assets
-      say 'Setup assets'
-      build :shared_views_directory
-      build :shared_flash
-      build :shared_javascript
-      build :shared_styles
-      build :assets_config
+      unless options[:api]
+        say 'Setup assets'
+        build :shared_views_directory
+        build :shared_flash
+        build :shared_javascript
+        build :shared_styles
+        build :assets_config
+      end
     end
 
     def setup_helpers
-      build :simple_form_config
-      build :rack_mini_profiler_config
+      unless options[:api]
+        build :simple_form_config
+        build :rack_mini_profiler_config
+      end
     end
 
     def setup_static
-      say 'Setup static'
+      if options[:static] && !options[:api]
+        say 'Setup static'
 
-      build :remove_turbolinks
-      build :stylesheets_gems
-      build :stylesheets_manifest
-      build :refils
-      build :bitters
+        build :remove_turbolinks
+        build :stylesheets_gems
+        build :stylesheets_manifest
+        build :refils
+        build :bitters
+      end
     end
 
     def setup_error_pages
-      say 'Customizing the 500/404/422 pages'
-      build :static_pages
+      unless options[:api]
+        say 'Customizing the 500/404/422 pages'
+        build :static_pages
+      end
     end
 
     def setup_bundler_audit

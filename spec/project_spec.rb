@@ -23,7 +23,7 @@ RSpec.describe 'Project with configuration' do
     # 'browserList',
     '.ruby-version',
     '.gitignore',
-    '.env.development.example',
+    '.env.local.example',
     '.env.production',
   ]
 

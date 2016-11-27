@@ -145,8 +145,7 @@ module Kazan
       replace_in_file(
         "app/assets/javascripts/application.js",
         "//= require turbolinks",
-        ""
-      )
+        "")
     end
 
     def stylesheets_gems
@@ -168,8 +167,7 @@ gem 'refills', group: [:development, :test]
       copy_file(
         'application.scss',
         'app/assets/stylesheets/application.scss',
-        force: true,
-      )
+        force: true)
     end
 
     def refills
