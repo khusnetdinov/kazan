@@ -61,7 +61,7 @@ module Kazan
     end
 
     def shared_layout
-      copy_file 'application.html.erb', 'app/views/layouts/application.html.erb', force: true
+      copy_file '_application.html.erb', 'app/views/layouts/application.html.erb', force: true
     end
 
     def assets_config

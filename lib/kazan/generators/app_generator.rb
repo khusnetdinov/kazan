@@ -116,6 +116,7 @@ module Kazan
         build :shared_javascript
         build :shared_styles
         build :assets_config
+        build :shared_layout
       end
     end
 
