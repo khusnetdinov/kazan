@@ -127,14 +127,16 @@ module Kazan
     end
 
     def setup_static
-      if options[:static] && !options[:api]
-        say 'Setup static'
+      unless options[:api]
+        if options[:static]
+          say 'Setup static'
 
-        build :remove_turbolinks
-        build :stylesheets_gems
-        build :stylesheets_manifest
-        build :refils
-        build :bitters
+          build :remove_turbolinks
+          build :stylesheets_gems
+          build :stylesheets_manifest
+          build :refils
+          build :bitters
+        end
       end
     end
 
