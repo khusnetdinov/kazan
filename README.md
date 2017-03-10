@@ -2,7 +2,7 @@
 
 Kazan creates rails project and setups predefined gems and tools.
 
-![img](http://res.cloudinary.com/dtoqqxqjv/image/upload/v1489144588/github/imageedit_4_6229938689_bt8x5c.png)
+![img](http://res.cloudinary.com/dtoqqxqjv/image/upload/c_scale,w_300/v1489144588/github/imageedit_4_6229938689_bt8x5c.png)
 
 ## Installation
 
