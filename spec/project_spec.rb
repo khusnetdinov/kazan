@@ -20,7 +20,6 @@ RSpec.describe 'Project with configuration' do
     'Gemfile',
     'Procfile',
     'README.md',
-    # 'browserList',
     '.ruby-version',
     '.gitignore',
     '.env.local.example',
@@ -48,7 +47,6 @@ RSpec.describe 'Project with configuration' do
     'awesome_print',
     'better_errors',
     'bullet',
-    'bundler-audit',
     'capybara',
     'config',
     'database_cleaner',
@@ -71,7 +69,8 @@ RSpec.describe 'Project with configuration' do
     'rack-timeout',
     'recipient_interceptor',
     'rails',
-    'rails-i18n',
+    'i18n-tasks',
+    'i18n_yaml_sorter',
     'rollbar',
     'rspec-rails',
     'sass-rails',
@@ -140,12 +139,6 @@ RSpec.describe 'Project with configuration' do
      it { is_expected.to be_truthy }
    end
   end
-
-  # describe 'simple_from.rb' do
-    # subject { load_file 'config/initializers/simple_form.rb' }
-
-     # it { is_expected.to be_truthy }
-   # end
 
   RSPEC.each do |helper|
     describe helper do

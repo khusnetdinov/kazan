@@ -150,7 +150,7 @@ module Kazan
     end
 
     def setup_locales
-      unless option[:api]
+      unless options[:api]
         say 'Setup locales tools'
         build :setup_locales
       end
