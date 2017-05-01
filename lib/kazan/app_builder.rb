@@ -193,6 +193,11 @@ gem 'refills', group: [:development, :test]
       end
     end
 
+    def setup_locales
+      copy_file 'i18n-tasks.yml', 'config/i18n-tasks.yml'
+      copy_file 'i18n_spec.rb', 'spec/i18n_spec.rb'
+    end
+
     def bundler_audit_config
       copy_file 'bundler_audit.rake', 'lib/tasks/bundler_audit.rake'
       append_file 'Rakefile', %{\ntask default: 'bundler:audit'\n}
