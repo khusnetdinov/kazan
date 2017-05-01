@@ -72,6 +72,8 @@ It includes tests gems:
  - [Factory Girl](https://github.com/thoughtbot/factory_girl) is a fixtures replacement with a straightforward definition syntax.
  - [Faker](https://github.com/stympy/faker) a port of Perl's Data::Faker library that generates fake data.
  - [Formulaic](https://github.com/thoughtbot/formulaic) [API EXCLUDED] the tedium of formulaic form filling with Capybara.
+ - [I18n-Tasks](https://github.com/glebm/i18n-tasks) [API EXCLUDED] Gem that helps manage locales and test if are there problems.
+ - [I18n-Yaml-Sorter](https://github.com/redealumni/i18n_yaml_sorter) [API EXCLUDED] Sort all locales by keys.
  - [Launchy](https://github.com/copiousfreetime/launchy) [API EXCLUDED] helper class for launching cross-platform applications in a fire and forget manner.
  - [Rspec](https://github.com/rspec/rspec-rails) is a testing framework for Rails.
  - [Simplecov](https://github.com/colszowka/simplecov) is a code coverage analysis tool for Ruby.

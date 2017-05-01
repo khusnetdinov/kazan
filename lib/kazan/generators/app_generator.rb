@@ -33,6 +33,7 @@ module Kazan
       invoke :setup_assets
       invoke :setup_helpers
       invoke :setup_error_pages
+      invoke :setup_locales
 
       invoke :setup_static
 
@@ -145,6 +146,13 @@ module Kazan
       unless options[:api]
         say 'Customizing the 500/404/422 pages'
         build :static_pages
+      end
+    end
+
+    def setup_locales
+      unless option[:api]
+        say 'Setup locales tools'
+        build :setup_locales
       end
     end
 
