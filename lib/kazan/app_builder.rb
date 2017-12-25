@@ -65,7 +65,6 @@ module Kazan
     end
 
     def assets_config
-      copy_file 'browserslist', 'app/assets/stylesheets/browserslist'
       copy_file 'errors.rb', 'config/initializers/errors.rb'
       copy_file 'json_encoding.rb', 'config/initializers/json_encoding.rb'
     end
@@ -150,11 +149,6 @@ module Kazan
 
     def stylesheets_gems
       gems = <<-RUBY
-
-gem 'bourbon', '5.0.0.beta.6'
-gem 'neat', '~> 1.8.0'
-gem 'bitters'
-gem 'refills', group: [:development, :test]
       RUBY
 
       inject_into_file 'Gemfile', gems,
@@ -169,15 +163,6 @@ gem 'refills', group: [:development, :test]
         'application.scss',
         'app/assets/stylesheets/application.scss',
         force: true)
-    end
-
-    def refills
-      generate 'refills:import', 'flashes'
-      remove_dir 'app/views/refills'
-    end
-
-    def bitters
-      run 'bitters install --path app/assets/stylesheets'
     end
 
     def static_pages
