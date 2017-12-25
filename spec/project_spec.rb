@@ -43,7 +43,6 @@ RSpec.describe 'Project with configuration' do
 
   GEMS = [
     'annotate',
-    'autoprefixer-rails',
     'awesome_print',
     'better_errors',
     'bullet',
@@ -65,9 +64,7 @@ RSpec.describe 'Project with configuration' do
     'pry-rails',
     'puma',
     'rack-mini-profiler',
-    'rack-canonical-host',
     'rack-timeout',
-    'recipient_interceptor',
     'rails',
     'i18n-tasks',
     'i18n_yaml_sorter',

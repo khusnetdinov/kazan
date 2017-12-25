@@ -136,8 +136,6 @@ module Kazan
           build :remove_turbolinks
           build :stylesheets_gems
           build :stylesheets_manifest
-          build :refils
-          build :bitters
         end
       end
     end
