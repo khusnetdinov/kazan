@@ -24,10 +24,6 @@ This generator maps all flags to rails native generator, for example you can cre
 
 See all gems that will be installed to project in [Gemfile](https://github.com/khusnetdinov/kazan/blob/master/templates/Gemfile.erb) for web application or for api [Gemfile.api](https://github.com/khusnetdinov/kazan/blob/master/templates/Gemfile.api.erb).
 
-## Options
-
-  - `--static` to use [Bitters](https://github.com/thoughtbot/bitters), [Bourbon](https://github.com/thoughtbot/bourbon), [Neat](https://github.com/thoughtbot/neat), [Refills](https://github.com/thoughtbot/refills).
-
 ## Gems
 
 It includes applications gems:
@@ -36,9 +32,7 @@ It includes applications gems:
   - [I18n](https://github.com/svenfuchs/rails-i18n) is central point to collect locale data for use in Ruby on Rails.
   - [PostgreSQL](https://www.postgresql.org/) database with [PG](https://rubygems.org/gems/pg/versions/0.18.4) adapter is used by defaul.
   - [Puma](http://puma.io/) is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications.
-  - [Rack Canonical Host](https://github.com/tylerhunt/rack-canonical-host) is middleware that lets you define a single host name as the canonical host for your application. Requests for other host names will then be redirected to the canonical host.
   - [Rack Timeout](https://github.com/heroku/rack-timeout) aborts requests that are taking too long; an exception is raised.
-  - [Recepient Interceptor](https://github.com/croaky/recipient_interceptor) never accidentally send emails to real people from your staging environment.
   - [Rails 5.0.0](http://rubyonrails.org/)
   - [Rails Config](https://github.com/railsconfig/config) helps you easily manage environment specific settings in an easy and usable manner.
   - [Rollbar](https://rollbar.com/) error monitoring fits right into your continuous delivery and deployment workflows to provide confidence in every code release.
@@ -46,7 +40,6 @@ It includes applications gems:
 
 It includes assets gems [API EXCLUDED]:
 
-  - [Autoprefixer Rails](https://github.com/ai/autoprefixer-rails) is a tool to parse CSS and add vendor prefixes to CSS rules using values from the [Can I Use](http://caniuse.com/).
   - [Normalize Css](https://necolas.github.io/normalize.css/) makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
   - [Sass](http://sass-lang.com/) is the most mature, stable, and powerful professional grade CSS extension language in the world.
 
