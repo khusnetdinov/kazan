@@ -208,8 +208,8 @@ module Kazan
       copy_file 'shoulda_matchers.rb', 'spec/support/shoulda_matchers.rb'
     end
 
-    def spec_factory_girl_config
-      copy_file 'factory_girl.rb', 'spec/support/factory_girl.rb'
+    def spec_factory_bot_config
+      copy_file 'factory_bot.rb', 'spec/support/factory_bot.rb'
     end
 
     def rspec_config
