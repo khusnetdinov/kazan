@@ -62,7 +62,7 @@ It includes development gems:
 It includes tests gems:
  - [Capybara](https://github.com/jnicklas/capybara) [API EXCLUDED] helps you test web applications by simulating how a real user would interact with your app.
  - [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner) is a set of strategies for cleaning your database in Ruby.
- - [Factory Girl](https://github.com/thoughtbot/factory_girl) is a fixtures replacement with a straightforward definition syntax.
+ - [Factory Bot](https://github.com/thoughtbot/factory_bot) is a fixtures replacement with a straightforward definition syntax.
  - [Faker](https://github.com/stympy/faker) a port of Perl's Data::Faker library that generates fake data.
  - [Formulaic](https://github.com/thoughtbot/formulaic) [API EXCLUDED] the tedium of formulaic form filling with Capybara.
  - [I18n-Tasks](https://github.com/glebm/i18n-tasks) [API EXCLUDED] Gem that helps manage locales and test if are there problems.
