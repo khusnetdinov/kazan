@@ -3,6 +3,7 @@
 *.swo
 *.swp
 /.bundle
+/.idea
 /.env.production
 /.env.development
 /.env.local
