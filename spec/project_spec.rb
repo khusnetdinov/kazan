@@ -45,6 +45,7 @@ RSpec.describe 'Project with configuration' do
     'annotate',
     'awesome_print',
     'better_errors',
+    'bootsnap',
     'bullet',
     'capybara',
     'config',
