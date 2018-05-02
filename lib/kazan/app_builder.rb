@@ -291,6 +291,36 @@ module Kazan
       end
     end
 
+    def seo_controller
+      config = <<-RUBY
+    config.autoload_paths += %W[
+      \#{Rails.root}/app/utilities/*
+      \#{Rails.root}/config/settings.yml
+    ]
+      RUBY
+
+      inject_into_class 'config/application.rb', 'Application', config
+
+      [
+        'app/views/web/seo',
+        'app/utilities',
+        'spec/controllers/web',
+        'spec/routing/web',
+        'spec/utilities'
+      ].each do |dir|
+        empty_directory_with_keep_file dir
+      end
+
+      copy_file 'seo/seo_controller.rb', 'app/controllers/web/seo_controller.rb'
+      copy_file 'seo/seo_controller_spec.rb', 'spec/controllers/web/seo_controller_spec.rb'
+      copy_file 'seo/seo_routing_spec.rb', 'spec/routing/web/seo_routing_spec.rb'
+      copy_file 'seo/settings_utility_spec.rb', 'spec/utilities/settings_utility_spec.rb'
+      copy_file 'seo/robots.text.erb', 'app/views/web/seo/robots.text.erb'
+      copy_file 'seo/sitemap.xml.builder', 'app/views/web/seo/sitemap.xml.builder'
+      copy_file 'seo/settings_utility.rb', 'app/utilities/settings_utility.rb'
+      copy_file 'routes.rb', 'config/routes.rb', force: true
+    end
+
     def init_commit
       run 'git init'
       run 'git add .'
