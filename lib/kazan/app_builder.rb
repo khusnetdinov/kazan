@@ -179,6 +179,7 @@ module Kazan
     end
 
     def setup_locales
+      copy_file 'i18n_en.yml', 'config/locales/en.yml', force: true
       copy_file 'i18n-tasks.yml', 'config/i18n-tasks.yml'
       copy_file 'i18n_spec.rb', 'spec/i18n_spec.rb'
     end
@@ -282,10 +283,25 @@ module Kazan
         'spec/models',
         'spec/mailers',
         'spec/requests',
-        'spec/routing',
+        'spec/routing'
       ].each do |dir|
         empty_directory_with_keep_file dir
       end
+    end
+
+    def generate_controller
+      [
+        'app/views/web/welcome',
+        'spec/controllers/web',
+        'spec/routing/web'
+      ].each do |dir|
+        empty_directory_with_keep_file dir
+      end
+      copy_file 'welcome/welcome_controller.rb', 'app/controllers/web/welcome_controller.rb'
+      copy_file 'welcome/welcome_index.html.erb', 'app/views/web/welcome/index.html.erb'
+      copy_file 'spec/welcome_controller_spec.rb', 'spec/controllers/web/welcome_controller_spec.rb'
+      copy_file 'spec/welcome_routing_spec.rb', 'spec/routing/web/welcome_routing_spec.rb'
+      copy_file 'routes.rb', 'config/routes.rb', force: true
     end
 
     def init_commit
