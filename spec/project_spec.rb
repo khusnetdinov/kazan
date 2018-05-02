@@ -59,6 +59,7 @@ RSpec.describe 'Project with configuration' do
     'jquery-rails',
     'launchy',
     'letter_opener',
+    'meta-tags',
     'normalize-rails',
     'pg',
     'pry-byebug',

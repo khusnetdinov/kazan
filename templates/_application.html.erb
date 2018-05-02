@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <meta name="ROBOTS" content="NOODP" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="<%= yield(:description).to_s %>" />
+    <meta name="keywords" content="<%= yield(:keywords).to_s %>" />
+    <%= csrf_meta_tags %>
+    <%= display_meta_tags %>
     <title>Application</title>
     <%= stylesheet_link_tag :application, media: "all" %>
-    <%= csrf_meta_tags %>
   </head>
   <body>
     <%= render "layouts/shared/flashes" -%>
