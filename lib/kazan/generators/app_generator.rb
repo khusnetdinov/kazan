@@ -40,7 +40,6 @@ module Kazan
       invoke :setup_bundler_audit
       invoke :setup_spring
       invoke :setup_empty_directories
-      invoke :setup_controller
       invoke :setup_project_repository
       invoke :outro
     end
@@ -168,13 +167,6 @@ module Kazan
     def setup_empty_directories
       say 'Setup empty directories'
       build :empty_directories
-    end
-
-    def setup_controller
-      unless options[:api]
-        say 'Setup controller Welcome'
-        build :generate_controller
-      end
     end
 
     def setup_project_repository
