@@ -33,7 +33,7 @@ It includes applications gems:
   - [PostgreSQL](https://www.postgresql.org/) database with [PG](https://rubygems.org/gems/pg/versions/0.18.4) adapter is used by defaul.
   - [Puma](http://puma.io/) is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications.
   - [Rack Timeout](https://github.com/heroku/rack-timeout) aborts requests that are taking too long; an exception is raised.
-  - [Rails 5.0.0](http://rubyonrails.org/)
+  - [Rails 5.2.0](http://rubyonrails.org/)
   - [Rails Config](https://github.com/railsconfig/config) helps you easily manage environment specific settings in an easy and usable manner.
   - [Rollbar](https://rollbar.com/) error monitoring fits right into your continuous delivery and deployment workflows to provide confidence in every code release.
   - [Simple From](https://github.com/plataformatec/simple_form) [API EXCLUDED] aims to be as flexible as possible while helping you with powerful components to create your forms.
