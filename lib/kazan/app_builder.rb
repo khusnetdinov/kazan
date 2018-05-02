@@ -282,7 +282,6 @@ module Kazan
         'spec/models',
         'spec/mailers',
         'spec/requests',
-        'spec/routing'
       ].each do |dir|
         empty_directory_with_keep_file dir
       end
