@@ -30,6 +30,7 @@ It includes applications gems:
 
   - [Dotenv](https://github.com/bkeepers/dotenv) Shim to load environment variables from .env into ENV in development.
   - [I18n](https://github.com/svenfuchs/rails-i18n) is central point to collect locale data for use in Ruby on Rails.
+  - [MetaTags](https://github.com/kpumuk/meta-tags) a gem to make your Rails application SEO-friendly. Gem is not generated if --api is selected.
   - [PostgreSQL](https://www.postgresql.org/) database with [PG](https://rubygems.org/gems/pg/versions/0.18.4) adapter is used by defaul.
   - [Puma](http://puma.io/) is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications.
   - [Rack Timeout](https://github.com/heroku/rack-timeout) aborts requests that are taking too long; an exception is raised.

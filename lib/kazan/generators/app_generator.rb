@@ -123,7 +123,9 @@ module Kazan
 
     def setup_helpers
       unless options[:api]
+        say 'Setup helpers'
         build :simple_form_config
+        build :init_meta_tags
         build :rack_mini_profiler_config
       end
     end
