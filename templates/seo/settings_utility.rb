@@ -5,7 +5,7 @@ module SettingsUtility
   module_function
 
   def site_url
-    Settings.site_url
+    Settings.seo.site_url
   end
 
   def site_allowed

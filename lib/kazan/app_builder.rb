@@ -129,6 +129,10 @@ module Kazan
 
     def rails_generators_config
       config = <<-RUBY
+    config.autoload_paths += %W[
+      \#{Rails.root}/app/utilities/*
+    ]
+
     config.generators do |generate|
       generate.helper false
       generate.javascript_engine false
@@ -292,16 +296,7 @@ module Kazan
     end
 
     def seo_controller
-      config = <<-RUBY
-    config.autoload_paths += %W[
-      \#{Rails.root}/app/utilities/*
-      \#{Rails.root}/config/settings.yml
-    ]
-      RUBY
-
-      inject_into_class 'config/application.rb', 'Application', config
-
-      [
+       [
         'app/views/web/seo',
         'app/utilities',
         'spec/controllers/web',

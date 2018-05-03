@@ -7,7 +7,8 @@ xml.tag! 'urlset',
          'xmlns:video' => 'http://www.google.com/schemas/sitemap-video/1.1' do
   @allowed_routes[0..-2].each do |route|
     xml.url do
-      xml.loc "#{site_url}#{route}"
+      xml.loc "#{@base_url}#{route}"
     end
   end
 end
+

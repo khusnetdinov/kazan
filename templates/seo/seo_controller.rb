@@ -7,9 +7,7 @@ module Web
     before_action :cache, only: %i[robots sitemap]
     before_action :load_routes, only: %i[robots sitemap]
 
-    def robots
-      @base_url = site_url
-    end
+    def robots; end
 
     def sitemap
       respond_to do |format|
@@ -26,12 +24,7 @@ module Web
     def load_routes
       @allowed_routes = SettingsUtility.site_allowed
       @disallow_routes = SettingsUtility.site_disallowed
+      @base_url = SettingsUtility.site_url
     end
-
-    # :reek:UtilityFunction
-    def site_url
-      SettingsUtility.site_url
-    end
-    helper_method :site_url
   end
 end

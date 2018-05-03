@@ -82,7 +82,8 @@ It includes tests gems:
   - Rails' flashes set up and in application layout.
   - [Rack::Deflater](https://robots.thoughtbot.com/content-compression-with-rack-deflater) to compress responses with Gzip.
   - [Safe binstubs](https://github.com/thoughtbot/suspenders/pull/282).
-  - Ready Seo controller with methods for generating files.
+  - Ready Seo controller with methods for generating files - robots.txt,
+    sitemap.xml.
 
 ## License
 
