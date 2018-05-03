@@ -26,6 +26,10 @@ module Kazan
       bundle_command 'exec rails generate simple_form:install'
     end
 
+    def init_meta_tags
+      bundle_command 'exec rails generate meta_tags:install'
+    end
+
     def rack_mini_profiler_config
       copy_file 'rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
     end
