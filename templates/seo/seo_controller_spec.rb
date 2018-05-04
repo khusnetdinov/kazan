@@ -14,7 +14,7 @@ RSpec.describe Web::SeoController, type: :controller do
     end
   end
 
-    describe '#sitemap' do
+  describe '#sitemap' do
     before { get :sitemap, format: :xml }
 
     it { is_expected.to render_template(:sitemap) }
