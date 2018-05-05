@@ -11,14 +11,15 @@ RSpec.describe SettingsUtility do
   end
 
   describe '.site_allowed' do
-    let(:actual) { SettingsUtility.site_allowed.include?('/robots.txt') }
+    let(:actual) { SettingsUtility.site_allowed }
+    let(:url) { '/robots.txt' }
 
-    it { expect(actual).to be_truthy }
+    it { expect(actual.include?(url)).to be_truthy }
   end
 
   describe '.site_disallowed' do
     let(:actual) { SettingsUtility.site_disallowed }
 
-    it { expect(actual).to be_falsey }
+    it { expect(actual.nil?).to be_truthy }
   end
 end
