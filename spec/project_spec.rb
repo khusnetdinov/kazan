@@ -68,6 +68,7 @@ RSpec.describe 'Project with configuration' do
     'rack-mini-profiler',
     'rack-timeout',
     'rails',
+    'rails-controller-testing',
     'i18n-tasks',
     'i18n_yaml_sorter',
     'rollbar',

@@ -1,0 +1,11 @@
+User-agent: *
+
+<% @allowed_routes.each do |route| %>
+Allow: <%= route %>
+<% end %>
+
+<% @disallow_routes.each do |route| %>
+Disallow: <%= route %>
+<% end %>
+
+Sitemap: <%= site_url %>/sitemap.xml
