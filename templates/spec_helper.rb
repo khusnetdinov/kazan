@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if ENV.fetch('COVERAGE', false)
   require 'simplecov'
   SimpleCov.start 'rails'
@@ -18,7 +20,7 @@ RSpec.configure do |config|
   config.example_status_persistence_file_path = 'tmp/rspec_examples.txt'
   config.order = :random
 
-   # config.infer_spec_type_from_file_location!
+  # config.infer_spec_type_from_file_location!
 end
 
 WebMock.disable_net_connect!(allow_localhost: true)

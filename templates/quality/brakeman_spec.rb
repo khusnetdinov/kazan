@@ -5,7 +5,7 @@ require 'yaml'
 
 RSpec.describe 'BrakemanEnsurance' do
   let(:settings) do
-    YAML.safe_load(File.read(File.expand_path('../../.quality/.quality.yml', __FILE__)))
+    YAML.safe_load(File.read(File.expand_path('../.quality/.quality.yml', __dir__)))
   end
 
   let(:obsoletes) do

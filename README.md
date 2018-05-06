@@ -54,7 +54,6 @@ It includes development gems:
   - [Bundler Audit](https://github.com/rubysec/bundler-audit) is patch-level verification for bundler.
   - [Bullet](https://github.com/flyerhzm/bullet) is designed to help you increase your application's performance by reducing the number of queries it makes.
   - [Foreman](https://github.com/ddollar/foreman) procfile-based applications.
-  - [HAML-lint](https://github.com/brigade/haml-lint) is a tool to help keep your [HAML](http://haml.info/) files clean and readable. In addition to HAML-specific style and lint checks, it integrates with [RuboCop](https://github.com/bbatsov/rubocop) to bring its powerful static analysis tools to your HAML documents.
   - [Letter Opener](https://github.com/ryanb/letter_opener) previews email in the default browser instead of sending it.
   - [Listen](https://github.com/guard/listen) listens to file modifications and notifies you about the changes.
   - [Pry](https://github.com/rweng/pry-rails) for interactively exploring objects.

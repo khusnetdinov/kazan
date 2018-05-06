@@ -41,6 +41,8 @@ module Kazan
       invoke :setup_spring
       invoke :setup_empty_directories
       invoke :setup_seo_controller
+      invoke :setup_irresponsible_modules_reek
+      invoke :setup_add_coment_rubocop
       invoke :setup_project_repository
       invoke :outro
     end
@@ -176,6 +178,16 @@ module Kazan
     def setup_seo_controller
       say 'Setup SeoController'
       build :seo_controller
+    end
+
+    def setup_irresponsible_modules_reek
+      say 'Setup comment to classes'
+      build :irresponsible_modules_reek
+    end
+
+    def setup_add_coment_rubocop
+      say 'Setup comment frozen_string_literal: true'
+      build :add_comment_rubocop
     end
 
     def setup_project_repository

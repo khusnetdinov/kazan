@@ -1,6 +1,6 @@
 quality:
   brakeman:
     obsolete:
-      max: 1
+      max: 0
       stamps:
-        - 062b164e220140ae64a7aa919719a319e0e9603093f19ec9991e950d8a380c82
+        []
