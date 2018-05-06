@@ -229,6 +229,36 @@ module Kazan
       copy_file 'spec_helper.rb', 'spec/spec_helper.rb', force: true
     end
 
+    def spec_quality_tests
+      run 'git clone https://github.com/howtohireme/.quality.git'
+      create_file '.quality.yml'
+      copy_file 'quality/.quality.yml', '.quality/.quality.yml'
+      [
+        'brakeman_spec.rb',
+        'bundler_audit_spec.rb',
+        'eslint_spec.rb',
+        'haml_lint_spec.rb',
+        'reek_spec.rb',
+        'rubocop_spec.rb',
+        'scss_lint_spec.rb'
+      ].each do |file|
+        copy_file "quality/#{file}", "spec/#{file}"
+      end
+      [
+        'brakeman',
+        'bundler-audit',
+        'haml-lint',
+        'reek',
+        'rubocop',
+        'scss-lint'
+      ].each do |file|
+        copy_file "bin/#{file}", "bin/#{file}", preserve: true
+        run "chmod +x bin/#{file}"
+      end
+      run 'npm install eslint --save-dev'
+      run 'bundle binstubs bundler --force'
+    end
+
     def smtp_config
       copy_file 'smtp.rb', 'config/smtp.rb'
 

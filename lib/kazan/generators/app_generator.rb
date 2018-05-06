@@ -93,6 +93,7 @@ module Kazan
       build :spec_factory_girl_config
       build :rspec_config
       build :rspec_replace_config
+      build :spec_quality_tests
     end
 
     def setup_production_environment
