@@ -231,12 +231,17 @@ module Kazan
     end
 
     def spec_quality_tests
-      run 'git clone https://github.com/howtohireme/.quality.git'
       create_file '.quality.yml'
       [
-        '.quality.yml',
+        'quality.yml',
+        'brakeman.yml',
+        'eslintrc.yml',
+        'haml-lint.yml',
+        'reek',
+        'rubocop.yml',
+        'scss-lint.yml'
       ].each do |file|
-        copy_file "quality/#{file}", ".quality/#{file}"
+        copy_file "quality/#{file}", ".quality/.#{file}"
       end
       [
         'brakeman_spec.rb',
