@@ -11,4 +11,3 @@ xml.tag! 'urlset',
     end
   end
 end
-

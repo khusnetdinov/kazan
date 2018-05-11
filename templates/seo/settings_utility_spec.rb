@@ -19,7 +19,8 @@ RSpec.describe SettingsUtility do
 
   describe '.site_disallowed' do
     let(:actual) { SettingsUtility.site_disallowed }
+    let(:url) { '/admin' }
 
-    it { expect(actual.nil?).to be_truthy }
+    it { expect(actual.include?(url)).to be_truthy }
   end
 end

@@ -1,0 +1,6 @@
+quality:
+  brakeman:
+    obsolete:
+      max: 0
+      stamps:
+        []

@@ -49,6 +49,7 @@ It includes development gems:
   - [Annotate](https://github.com/ctran/annotate_models) adds a comment summarizing the current schema.
   - [Awesome Print](https://github.com/awesome-print/awesome_print) prints pretty Ruby objects in full color exposing their internal structure with proper indentation.
   - [Better Errors](https://github.com/charliesome/better_errors) [API EXCLUDED] replaces the standard Rails error page with a much better and more useful error page.
+  - [Brakeman](https://github.com/presidentbeef/brakeman) is an open source static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
   - [ByeBug](https://github.com/deivid-rodriguez/byebug) is a simple to use, feature rich debugger for Ruby 2.
   - [Bundler Audit](https://github.com/rubysec/bundler-audit) is patch-level verification for bundler.
   - [Bullet](https://github.com/flyerhzm/bullet) is designed to help you increase your application's performance by reducing the number of queries it makes.
@@ -57,6 +58,9 @@ It includes development gems:
   - [Listen](https://github.com/guard/listen) listens to file modifications and notifies you about the changes.
   - [Pry](https://github.com/rweng/pry-rails) for interactively exploring objects.
   - [Rack Mini Profiler](https://github.com/MiniProfiler/rack-mini-profiler) [API EXCLUDED] displays speed badge for every html page.
+  - [Reek](https://github.com/troessner/reek) - code smell detector for Ruby.
+  - [RuboCop](https://github.com/bbatsov/rubocop) is a Ruby static code analyzer. Out of the box it will enforce many of the guidelines outlined in the community [Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide).
+  - [scss-lint](https://github.com/brigade/scss-lint) is a tool to help keep your [SCSS](http://sass-lang.com/) files clean and readable by running it against a collection of configurable linter rules.
   - [Spring](https://github.com/rails/spring) speeds up development by keeping your application running in the background.
   - [Web Console](https://github.com/rails/web-console) [API EXCLUDED] is a debugging tool for your Ruby on Rails applications.
 

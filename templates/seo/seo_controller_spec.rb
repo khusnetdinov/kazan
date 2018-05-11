@@ -10,7 +10,7 @@ RSpec.describe Web::SeoController, type: :controller do
 
     it { is_expected.to render_template(:robots) }
     it 'should respond with a success status code (2xx)' do
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe Web::SeoController, type: :controller do
 
     it { is_expected.to render_template(:sitemap) }
     it 'should respond with a success status code (2xx)' do
-      expect(response).to have_http_status(:success)
+      expect(response.status).to eq 200
     end
   end
 end

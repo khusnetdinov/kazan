@@ -189,6 +189,7 @@ module Kazan
     def setup_locales
       copy_file 'i18n-tasks.yml', 'config/i18n-tasks.yml'
       copy_file 'i18n_spec.rb', 'spec/i18n_spec.rb'
+      replace_in_file 'config/locales/en.yml', '  hello: "Hello world"', ''
     end
 
     def bundler_audit_config
@@ -227,6 +228,44 @@ module Kazan
     def rspec_replace_config
       copy_file 'rails_helper.rb', 'spec/rails_helper.rb', force: true
       copy_file 'spec_helper.rb', 'spec/spec_helper.rb', force: true
+    end
+
+    def spec_quality_tests
+      create_file '.quality.yml'
+      [
+        'quality.yml',
+        'brakeman.yml',
+        'eslintrc.yml',
+        'haml-lint.yml',
+        'reek',
+        'rubocop.yml',
+        'scss-lint.yml'
+      ].each do |file|
+        copy_file "quality/#{file}", ".quality/.#{file}"
+      end
+      [
+        'brakeman_spec.rb',
+        'bundler_audit_spec.rb',
+        'eslint_spec.rb',
+        'reek_spec.rb',
+        'rubocop_spec.rb',
+        'scss_lint_spec.rb'
+      ].each do |file|
+        copy_file "quality/#{file}", "spec/#{file}"
+      end
+      [
+        'brakeman',
+        'bundler-audit',
+        'haml-lint',
+        'reek',
+        'rubocop',
+        'scss-lint'
+      ].each do |file|
+        copy_file "bin/#{file}", "bin/#{file}", preserve: true
+        run "chmod +x bin/#{file}"
+      end
+      run 'npm install eslint --save-dev'
+      run 'bundle binstubs bundler --force'
     end
 
     def smtp_config
@@ -273,6 +312,62 @@ module Kazan
 
     def spring
       bundle_command 'exec spring binstub --all'
+    end
+
+    def irresponsible_modules_reek
+      config = <<-RUBY
+# The ApplicationController - filters added to this controller apply to all
+# controllers in the application. Likewise, all the methods added will be available
+# for all controllers.
+
+      RUBY
+      prepend_file 'app/controllers/application_controller.rb', config
+      config = <<-RUBY
+# The ApplicationHelper - methods added to this helper will be available to all
+# templates in the application.
+
+      RUBY
+      prepend_file 'app/helpers/application_helper.rb', config
+      config = <<-RUBY
+# The FlashHelper - module to user flash.
+
+      RUBY
+      prepend_file 'app/helpers/flashes_helper.rb', config
+      config = <<-RUBY
+# The ApplicationJob - is a framework for declaring jobs and making them run
+# on a variety of queuing backends. These jobs can be everything from regularly
+# scheduled clean-ups, to billing charges, to mailings. Anything that can be
+# chopped up into small units of work and run in parallel, really.
+
+      RUBY
+      prepend_file 'app/jobs/application_job.rb', config
+      config = <<-RUBY
+# The ApplicationMailer allows you to send emails from your application
+# using mailer classes and views. Mailers work very similarly to controllers.
+# They inherit from ActionMailer::Base and live in app/mailers, and they
+# have associated views that appear in app/views.
+
+      RUBY
+      prepend_file 'app/mailers/application_mailer.rb', config
+      config = <<-RUBY
+# The ApplicationRecord all the methods added will be available for all models.
+
+      RUBY
+      prepend_file 'app/models/application_record.rb', config
+    end
+
+    def add_comment_rubocop
+      [
+        'Rakefile',
+        'config.ru',
+        'app/jobs/application_job.rb',
+        'app/mailers/application_mailer.rb',
+        'app/models/application_record.rb',
+        'app/helpers/application_helper.rb',
+        'app/controllers/application_controller.rb'
+      ].each do |file|
+        prepend_file file, "# frozen_string_literal: true\n\n"
+      end
     end
 
     def empty_directories
