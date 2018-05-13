@@ -4,9 +4,11 @@ ruby "<%= Kazan::RUBY_PROJECT_VERSION %>"
 gem 'rails', "<%= Kazan::RAILS_VERSION %>"
 gem 'rails-i18n', "<%= Kazan::RAILS_I18N_VERSION %>"
 gem 'dotenv-rails'
-gem 'config'
-
+gem 'draper'
+gem 'interactor'
 gem 'pg'
+
+gem 'config'
 
 gem 'normalize-rails', '~> 3.0.0'
 gem 'sass-rails', '~> 5.0'
@@ -24,7 +26,6 @@ gem 'flutie'
 gem 'simple_form'
 
 gem 'rollbar'
-
 gem 'puma'
 
 group :development do
