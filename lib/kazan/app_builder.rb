@@ -221,17 +221,9 @@ module Kazan
       copy_file 'factory_bot.rb', 'spec/support/factory_bot.rb'
     end
 
-    def rspec_config
-      generate 'rspec:install'
-    end
-
-    def rspec_replace_config
-      copy_file 'rails_helper.rb', 'spec/rails_helper.rb', force: true
-      copy_file 'spec_helper.rb', 'spec/spec_helper.rb', force: true
-    end
-
     def spec_quality_tests
       create_file '.quality.yml'
+
       [
         'quality.yml',
         'brakeman.yml',
@@ -241,8 +233,9 @@ module Kazan
         'rubocop.yml',
         'scss-lint.yml'
       ].each do |file|
-        copy_file "quality/#{file}", ".quality/.#{file}"
+        copy_file "quality/configs/#{file}", ".quality/.#{file}"
       end
+
       [
         'brakeman_spec.rb',
         'bundler_audit_spec.rb',
@@ -251,8 +244,9 @@ module Kazan
         'rubocop_spec.rb',
         'scss_lint_spec.rb'
       ].each do |file|
-        copy_file "quality/#{file}", "spec/#{file}"
+        copy_file "quality/specs/#{file}", "spec/qualities/#{file}"
       end
+
       [
         'brakeman',
         'bundler-audit',
@@ -264,9 +258,20 @@ module Kazan
         copy_file "bin/#{file}", "bin/#{file}", preserve: true
         run "chmod +x bin/#{file}"
       end
+
       run 'npm install eslint --save-dev'
       run 'bundle binstubs bundler --force'
     end
+
+    def rspec_config
+      generate 'rspec:install'
+    end
+
+    def rspec_replace_config
+      copy_file 'rails_helper.rb', 'spec/rails_helper.rb', force: true
+      copy_file 'spec_helper.rb', 'spec/spec_helper.rb', force: true
+    end
+
 
     def smtp_config
       copy_file 'smtp.rb', 'config/smtp.rb'
@@ -375,11 +380,19 @@ module Kazan
         'app/assets/fonts',
         'app/controllers/api',
         'app/controllers/web',
-        'app/services',
+        'app/decorators',
+        'app/interactors/integrations',
+        'app/interactors/mailers',
+        'app/services/integrations',
+        'app/services/mailers',
         'app/policies',
         'app/validations',
         'app/views/shared',
         'spec/controllers',
+        'spec/decorators/integrations',
+        'spec/decorators/mailers',
+        'spec/interactors/integrations',
+        'spec/interactors/mailers',
         'spec/factories',
         'spec/helpers',
         'spec/models',
@@ -409,6 +422,14 @@ module Kazan
       copy_file 'seo/sitemap.xml.builder', 'app/views/web/seo/sitemap.xml.builder'
       copy_file 'seo/settings_utility.rb', 'app/utilities/settings_utility.rb'
       copy_file 'routes.rb', 'config/routes.rb', force: true
+
+      remove_file 'app/controllers/web/.keep'
+      remove_file 'app/utilities/.keep'
+      remove_file 'app/views/web/seo/.keep'
+      remove_file 'app/spec/controllers/web/.keep'
+      remove_file 'app/spec/controllers/web/seo/.keep'
+      remove_file 'app/spec/routing/web/seo/.keep'
+      remove_file 'app/spec/routing/utilities/.keep'
     end
 
     def init_commit

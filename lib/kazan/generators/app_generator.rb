@@ -1,6 +1,6 @@
 require 'rails/generators'
-
 require 'rails/generators/rails/app/app_generator'
+
 module Kazan
   class AppGenerator < Rails::Generators::AppGenerator
     hide!
@@ -93,9 +93,9 @@ module Kazan
       build :spec_database_cleaner_config
       build :spec_shoulda_matchers_config
       build :spec_factory_girl_config
+      build :spec_quality_tests
       build :rspec_config
       build :rspec_replace_config
-      build :spec_quality_tests
     end
 
     def setup_production_environment
