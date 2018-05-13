@@ -1,8 +1,14 @@
 sudo: false
 language: ruby
+
+notifications:
+  slack: howtohireme:uz7MwrjpHxSdIqFfSNqQyw1P
+
 rvm:
   - 2.5.1
+  
 gemfile:
   - Gemfile
+  
 before_install:
   - gem install bundler
