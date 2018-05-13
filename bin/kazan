@@ -7,6 +7,11 @@ $LOAD_PATH << source_path
 
 require 'kazan'
 
+unless `ruby -v`[/(\d\.\d\.\d)/] == Kazan::RUBY_PROJECT_VERSION
+  puts "Kazan require ruby #{Kazan::RUBY_PROJECT_VERSION}"
+  exit 0
+end
+
 if ARGV.empty?
   puts "Please provide an arguments"
   puts
@@ -23,8 +28,8 @@ elsif ['rails'].include?(ARGV[0]) && ['-v', '--version'].include?(ARGV[1])
 end
 
 templates_root = File.expand_path(File.join("..", "templates"), File.dirname(__FILE__))
+
 Kazan::AppGenerator.source_root templates_root
 Kazan::AppGenerator.source_paths << Rails::Generators::AppGenerator.source_root << templates_root
-
 Kazan::AppGenerator.start
 
