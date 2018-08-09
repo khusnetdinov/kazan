@@ -18,7 +18,7 @@ gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
 gem 'uglifier'
 
-gem 'bootsnap'
+gem 'bootsnap', require: false
 gem 'meta-tags'
 gem 'rails-controller-testing'
 
@@ -54,7 +54,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.5.0.beta4'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :test do

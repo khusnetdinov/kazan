@@ -1,5 +1,7 @@
-workers Integer(ENV.fetch("PUMA_WORKERS", 2))
-threads_count = Integer(ENV.fetch("PUMA_THREADS", 2))
+# frozen_string_literal: true
+
+workers Integer(ENV.fetch('PUMA_WORKERS', 2))
+threads_count = Integer(ENV.fetch('PUMA_THREADS', 2))
 threads(threads_count, threads_count)
 
 preload_app!

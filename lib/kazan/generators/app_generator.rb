@@ -1,12 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails/generators'
 require 'rails/generators/rails/app/app_generator'
 
 module Kazan
+  # This class generate new app
   class AppGenerator < Rails::Generators::AppGenerator
     hide!
 
     class_option :database, type: :string, aliases: '-d', default: 'postgresql',
-      desc: "Configure for selected database (options: #{DATABASES.join("/")})"
+                            desc: "Configure for selected database (options: #{DATABASES.join('/')})"
 
     class_option :skip_test, type: :string, default: '--skip-test-unit'
     class_option :skip_action_cable, type: :string, default: '--skip-action-cable'
@@ -53,10 +56,9 @@ module Kazan
     end
 
     def setup_gems
-      if options[:api]
-        say 'Setup gems'
-        build :gemfile_api
-      end
+      return unless options[:api]
+      say 'Setup gems'
+      build :gemfile_api
     end
 
     def setup_secrets
@@ -79,10 +81,8 @@ module Kazan
       build :bullet_config
       build :foreman_config
       build :rails_generators_config
-
-      unless options[:api]
-        build :quiet_assets_config
-      end
+      return if options[:api]
+      build :quiet_assets_config
     end
 
     def setup_test_environment
@@ -114,50 +114,44 @@ module Kazan
     end
 
     def setup_assets
-      unless options[:api]
-        say 'Setup assets'
-        build :shared_views_directory
-        build :shared_flash
-        build :shared_javascript
-        build :shared_styles
-        build :assets_config
-        build :shared_layout
-      end
+      return if options[:api]
+      say 'Setup assets'
+      build :shared_views_directory
+      build :shared_flash
+      build :shared_javascript
+      build :shared_styles
+      build :assets_config
+      build :shared_layout
     end
 
     def setup_helpers
-      unless options[:api]
-        say 'Setup helpers'
-        build :simple_form_config
-        build :init_meta_tags
-        build :rack_mini_profiler_config
-      end
+      return if options[:api]
+      say 'Setup helpers'
+      build :simple_form_config
+      build :init_meta_tags
+      build :rack_mini_profiler_config
     end
 
     def setup_static
-      unless options[:api]
-        if options[:static]
-          say 'Setup static'
+      return if options[:api]
+      return if options[:static]
+      say 'Setup static'
 
-          build :remove_turbolinks
-          build :stylesheets_gems
-          build :stylesheets_manifest
-        end
-      end
+      build :remove_turbolinks
+      build :stylesheets_gems
+      build :stylesheets_manifest
     end
 
     def setup_error_pages
-      unless options[:api]
-        say 'Customizing the 500/404/422 pages'
-        build :static_pages
-      end
+      return if options[:api]
+      say 'Customizing the 500/404/422 pages'
+      build :static_pages
     end
 
     def setup_locales
-      unless options[:api]
-        say 'Setup locales tools'
-        build :setup_locales
-      end
+      return if options[:api]
+      say 'Setup locales tools'
+      build :setup_locales
     end
 
     def setup_bundler_audit
