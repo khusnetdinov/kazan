@@ -435,6 +435,21 @@ module Kazan
       remove_file 'app/spec/routing/utilities/.keep'
     end
 
+    def mailers_templates
+      empty_directory 'app/views/mailers/layouts'
+      %w[mailer.html.erb mailer.text.erb].each do |file|
+        copy_file "app/views/layouts/#{file}", "app/views/mailers/layouts/#{file}"
+        remove_file "app/views/layouts/#{file}"
+      end
+      config = <<-RUBY
+    config.paths['app/views'].unshift(Rails.root.join('app/views/mailers'))
+      RUBY
+
+      inject_into_file 'config/application.rb',
+                       config,
+                       after: "config.assets.quiet = true\n"
+    end
+
     def init_commit
       run 'git init'
       run 'git add .'
