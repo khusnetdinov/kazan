@@ -2,18 +2,20 @@ settings: &settings
   adapter: postgresql
   encoding: utf8
   min_messages: warning
-  timeout: <%%= Integer(ENV.fetch('DATABASE_TIMEOUT', 5000))%>
-  pool: <%%= Integer(ENV.fetch('DATABASE_POOL', 5))%>
-
+  host: localhost
+  user: postgres
+  password: 1
+  timeout: <%= Integer(ENV.fetch('DATABASE_TIMEOUT', 5000))%>
+  pool: <%= Integer(ENV.fetch('DATABASE_POOL', 5))%>
 
 development:
   <<: *settings
-  reaping_frequency: <%%= Integer(ENV.fetch('DATABASE_REAPING_FREQUENCY', 10))%>
+  reaping_frequency: <%= Integer(ENV.fetch('DATABASE_REAPING_FREQUENCY', 10))%>
   database: <%= app_name %>_development
 
 test:
   <<: *settings
-  reaping_frequency: <%%= Integer(ENV.fetch('DATABASE_REAPING_FREQUENCY', 10))%>
+  reaping_frequency: <%= Integer(ENV.fetch('DATABASE_REAPING_FREQUENCY', 10))%>
   database: <%= app_name %>_test
 
 staging:
@@ -26,6 +28,6 @@ production:
   username:
   password:
   database: <%= app_name %>_production
-  pool: <%%= [Integer(ENV.fetch("PUMA_THREADS", 5)), Integer(ENV.fetch("DATABASE_POOL", 5))].max %>
+  pool: <%= [Integer(ENV.fetch('PUMA_THREADS', 5)), Integer(ENV.fetch("DATABASE_POOL", 5))].max %>
 
 

@@ -1,5 +1,6 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'kazan/version'
 require 'date'
@@ -14,8 +15,8 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/khusnetdinov/kazan'
   spec.license = 'MIT'
 
-  spec.summary = %q{Kazan creates rails project and setups predefined gems and tools.}
-  spec.description = %q{Kazan creates rails project and setups predefined gems and tools.}
+  spec.summary = 'Kazan creates rails project and setups predefined gems and tools.'
+  spec.description = 'Kazan creates rails project and setups predefined gems and tools.'
   spec.rdoc_options = ['--charset=UTF-8']
   spec.extra_rdoc_files = %w[README.md LICENSE]
 

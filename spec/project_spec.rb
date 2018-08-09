@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe 'Project with configuration' do
@@ -10,115 +12,115 @@ RSpec.describe 'Project with configuration' do
     drop_app_database
   end
 
-  BINSTUBS = [
-    'rake',
-    'rails',
-    'rspec'
-  ]
+  BINSTUBS = %w[
+    rake
+    rails
+    rspec
+  ].freeze
 
-  SETTINGS = [
-    'Gemfile',
-    'Procfile',
-    'README.md',
-    '.ruby-version',
-    '.gitignore',
-    '.env.local.example',
-    '.env.production',
-  ]
+  SETTINGS = %w[
+    Gemfile
+    Procfile
+    README.md
+    .ruby-version
+    .gitignore
+    .env.local.example
+    .env.production
+  ].freeze
 
-  CONFIGS = [
-    'database.yml',
-    'database.yml.example',
-    'puma.rb',
-    'settings.yml',
-    'smtp.rb'
-  ]
+  CONFIGS = %w[
+    database.yml
+    database.yml.example
+    puma.rb
+    settings.yml
+    smtp.rb
+  ].freeze
 
-  INITIALIZERS = [
-    'bullet.rb',
-    'errors.rb',
-    'json_encoding.rb',
-    'rollbar.rb'
-  ]
+  INITIALIZERS = %w[
+    bullet.rb
+    errors.rb
+    json_encoding.rb
+    rollbar.rb
+  ].freeze
 
-  GEMS = [
-    'annotate',
-    'awesome_print',
-    'better_errors',
-    'bootsnap',
-    'brakeman',
-    'bullet',
-    'bundler-audit',
-    'capybara',
-    'config',
-    'database_cleaner',
-    'dotenv',
-    'factory_bot_rails',
-    'faker',
-    'flutie',
-    'foreman',
-    'formulaic',
-    'haml_lint',
-    'i18n-tasks',
-    'i18n_yaml_sorter',
-    'jquery-rails',
-    'launchy',
-    'letter_opener',
-    'meta-tags',
-    'normalize-rails',
-    'pg',
-    'pry-byebug',
-    'pry-rails',
-    'puma',
-    'rack-mini-profiler',
-    'rack-timeout',
-    'rails',
-    'rails-controller-testing',
-    'i18n-tasks',
-    'i18n_yaml_sorter',
-    'reek',
-    'rollbar',
-    'rspec-rails',
-    'rubocop',
-    'sass-rails',
-    'scss_lint',
-    'simplecov',
-    'shoulda-matchers',
-    'sprockets', '>= 3.0.0',
-    'sprockets-es6',
-    'timecop',
-    'webmock',
-    'web-console',
-    'uglifier'
-  ]
+  GEMS = %w[
+    annotate
+    awesome_print
+    better_errors
+    bootsnap
+    brakeman
+    bullet
+    bundler-audit
+    capybara
+    config
+    database_cleaner
+    dotenv
+    factory_bot_rails
+    faker
+    flutie
+    foreman
+    formulaic
+    haml_lint
+    i18n-tasks
+    i18n_yaml_sorter
+    jquery-rails
+    launchy
+    letter_opener
+    meta-tags
+    normalize-rails
+    pg
+    pry-byebug
+    pry-rails
+    puma
+    rack-mini-profiler
+    rack-timeout
+    rails
+    rails-controller-testing
+    i18n-tasks
+    i18n_yaml_sorter
+    reek
+    rollbar
+    rspec-rails
+    rubocop
+    sass-rails
+    scss_lint
+    simplecov
+    shoulda-matchers
+    sprockets >=\ 3.0.0
+    sprockets-es6
+    timecop
+    webmock
+    web-console
+    uglifier
+  ].freeze
 
-  RSPEC = [
-    'rails_helper.rb',
-    'spec_helper.rb'
-  ]
+  RSPEC = %w[
+    rails_helper.rb
+    spec_helper.rb
+  ].freeze
 
-  SUPPORTS = [
-    'action_mailer.rb',
-    'database_cleaner.rb',
-    'i18n.rb',
-    'shoulda_matchers.rb'
-  ]
+  SUPPORTS = %w[
+    action_mailer.rb
+    database_cleaner.rb
+    i18n.rb
+    shoulda_matchers.rb
+  ].freeze
 
-  VIEWS = [
-    '_flashes.html.erb',
-    '_javascript.html.erb',
-    '_styles.html.erb'
-  ]
+  VIEWS = %w[
+    _flashes.html.erb
+    _javascript.html.erb
+    _styles.html.erb
+  ].freeze
 
   describe 'spring bin' do
     subject { File }
 
-    it { is_expected.to exist("#{project_path}/bin/spring") }
+    it { is_expected.to exist("#{temp_project_path}/bin/spring") }
   end
 
   BINSTUBS.each do |bin_stub|
     describe bin_stub do
-      subject { IO.read("#{project_path}/bin/#{bin_stub}") }
+      subject { IO.read("#{temp_project_path}/bin/#{bin_stub}") }
 
       it { is_expected.to match(/spring/) }
     end
@@ -128,7 +130,7 @@ RSpec.describe 'Project with configuration' do
     describe config do
       subject { load_file config }
 
-      it { is_expected.to be_truthy}
+      it { is_expected.to be_truthy }
     end
   end
 
@@ -141,11 +143,11 @@ RSpec.describe 'Project with configuration' do
   end
 
   INITIALIZERS.each do |initializer|
-   describe initializer do
-     subject { load_file "config/initializers/#{initializer}" }
+    describe initializer do
+      subject { load_file "config/initializers/#{initializer}" }
 
-     it { is_expected.to be_truthy }
-   end
+      it { is_expected.to be_truthy }
+    end
   end
 
   RSPEC.each do |helper|

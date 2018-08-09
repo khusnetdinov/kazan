@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Kazan
+  # This class build new project
   class AppBuilder < Rails::AppBuilder
     include Kazan::Actions
 
@@ -82,8 +85,9 @@ module Kazan
     end
 
     def exception_on_delivery_errors
-     replace_in_file 'config/environments/development.rb',
-       'raise_delivery_errors = false', 'raise_delivery_errors = true'
+      replace_in_file 'config/environments/development.rb',
+                      'raise_delivery_errors = false',
+                      'raise_delivery_errors = true'
     end
 
     def exception_on_unpermitted_parameters
@@ -149,38 +153,36 @@ module Kazan
     end
 
     def remove_turbolinks
-      replace_in_file(
-        "app/assets/javascripts/application.js",
-        "//= require turbolinks",
-        "")
+      replace_in_file 'app/assets/javascripts/application.js',
+                      '//= require turbolinks',
+                      ''
     end
 
     def stylesheets_gems
       gems = <<-RUBY
       RUBY
 
-      inject_into_file 'Gemfile', gems,
-        after: "gem 'sass-rails', '~> 5.0'\n"
-
+      inject_into_file 'Gemfile',
+                       gems,
+                       after: "gem 'sass-rails', '~> 5.0'\n"
       Bundler.with_clean_env { run 'bundle install' }
     end
 
     def stylesheets_manifest
       remove_file 'app/assets/stylesheets/application.css'
-      copy_file(
-        'application.scss',
-        'app/assets/stylesheets/application.scss',
-        force: true)
+      copy_file 'application.scss',
+                'app/assets/stylesheets/application.scss',
+                force: true
     end
 
     def static_pages
-      meta_tags = <<-EOS
-    <meta charset="utf-8" />
-    <meta name="ROBOTS" content="NOODP" />
-    <meta name="viewport" content="initial-scale=1" />
-      EOS
+      meta_tags = <<-META
+    <meta charset='utf-8' />
+    <meta name='ROBOTS' content='NOODP' />
+    <meta name='viewport' content='initial-scale=1' />
+      META
 
-      %w(500 404 422).each do |page|
+      %w[500 404 422].each do |page|
         inject_into_file "public/#{page}.html", meta_tags, after: "<head>\n"
         replace_in_file "public/#{page}.html", /<!--.+-->\n/, ''
       end
@@ -194,7 +196,7 @@ module Kazan
 
     def bundler_audit_config
       copy_file 'bundler_audit.rake', 'lib/tasks/bundler_audit.rake'
-      append_file 'Rakefile', %{\ntask default: 'bundler:audit'\n}
+      append_file 'Rakefile', %(\ntask default: 'bundler:audit'\n)
     end
 
     def exception_on_missing_assets_in_test
@@ -272,12 +274,11 @@ module Kazan
       copy_file 'spec_helper.rb', 'spec/spec_helper.rb', force: true
     end
 
-
     def smtp_config
       copy_file 'smtp.rb', 'config/smtp.rb'
 
       prepend_file 'config/environments/production.rb',
-        %{require Rails.root.join("config/smtp")\n}
+                   %{require Rails.root.join("config/smtp")\n}
 
       config = <<-RUBY
   config.action_mailer.delivery_method = :smtp
@@ -285,13 +286,14 @@ module Kazan
 
       RUBY
 
-      inject_into_file 'config/environments/production.rb', config,
-        after: "config.action_mailer.raise_delivery_errors = false"
+      inject_into_file 'config/environments/production.rb',
+                       config,
+                       after: 'config.action_mailer.raise_delivery_errors = false'
     end
 
     def rack_timeout_config
       rack_timeout_config = <<-RUBY
-  Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
+  Rack::Timeout.timeout = (ENV['RACK_TIMEOUT'] || 10).to_i
 
       RUBY
 
@@ -300,15 +302,16 @@ module Kazan
 
     def rack_canonical_host_config
       config = <<-RUBY
-  config.middleware.use Rack::CanonicalHost, ENV.fetch("APPLICATION_HOST")
+  config.middleware.use Rack::CanonicalHost, ENV.fetch('APPLICATION_HOST')
       RUBY
 
-      inject_into_file "config/environments/production.rb", config,
-        after: "Rails.application.configure do"
+      inject_into_file 'config/environments/production.rb',
+                       config,
+                       after: 'Rails.application.configure do'
     end
 
     def rack_deflater_config
-      configure_environment "production", "config.middleware.use Rack::Deflater"
+      configure_environment 'production', 'config.middleware.use Rack::Deflater'
     end
 
     def rollbar_config
@@ -321,41 +324,41 @@ module Kazan
 
     def irresponsible_modules_reek
       config = <<-RUBY
-# The ApplicationController - filters added to this controller apply to all
-# controllers in the application. Likewise, all the methods added will be available
-# for all controllers.
+  # The ApplicationController - filters added to this controller apply to all
+  # controllers in the application. Likewise, all the methods added will be available
+  # for all controllers.
 
       RUBY
       prepend_file 'app/controllers/application_controller.rb', config
       config = <<-RUBY
-# The ApplicationHelper - methods added to this helper will be available to all
-# templates in the application.
+  # The ApplicationHelper - methods added to this helper will be available to all
+  # templates in the application.
 
       RUBY
       prepend_file 'app/helpers/application_helper.rb', config
       config = <<-RUBY
-# The FlashHelper - module to user flash.
+  # The FlashHelper - module to user flash.
 
       RUBY
       prepend_file 'app/helpers/flashes_helper.rb', config
       config = <<-RUBY
-# The ApplicationJob - is a framework for declaring jobs and making them run
-# on a variety of queuing backends. These jobs can be everything from regularly
-# scheduled clean-ups, to billing charges, to mailings. Anything that can be
-# chopped up into small units of work and run in parallel, really.
+  # The ApplicationJob - is a framework for declaring jobs and making them run
+  # on a variety of queuing backends. These jobs can be everything from regularly
+  # scheduled clean-ups, to billing charges, to mailings. Anything that can be
+  # chopped up into small units of work and run in parallel, really.
 
       RUBY
       prepend_file 'app/jobs/application_job.rb', config
       config = <<-RUBY
-# The ApplicationMailer allows you to send emails from your application
-# using mailer classes and views. Mailers work very similarly to controllers.
-# They inherit from ActionMailer::Base and live in app/mailers, and they
-# have associated views that appear in app/views.
+  # The ApplicationMailer allows you to send emails from your application
+  # using mailer classes and views. Mailers work very similarly to controllers.
+  # They inherit from ActionMailer::Base and live in app/mailers, and they
+  # have associated views that appear in app/views.
 
       RUBY
       prepend_file 'app/mailers/application_mailer.rb', config
       config = <<-RUBY
-# The ApplicationRecord all the methods added will be available for all models.
+  # The ApplicationRecord all the methods added will be available for all models.
 
       RUBY
       prepend_file 'app/models/application_record.rb', config
@@ -397,14 +400,14 @@ module Kazan
         'spec/helpers',
         'spec/models',
         'spec/mailers',
-        'spec/requests',
+        'spec/requests'
       ].each do |dir|
         empty_directory_with_keep_file dir
       end
     end
 
     def seo_controller
-       [
+      [
         'app/views/web/seo',
         'app/utilities',
         'spec/controllers/web',
@@ -414,13 +417,13 @@ module Kazan
         empty_directory_with_keep_file dir
       end
 
-      copy_file 'seo/seo_controller.rb', 'app/controllers/web/seo_controller.rb'
-      copy_file 'seo/seo_controller_spec.rb', 'spec/controllers/web/seo_controller_spec.rb'
-      copy_file 'seo/seo_routing_spec.rb', 'spec/routing/web/seo_routing_spec.rb'
-      copy_file 'seo/settings_utility_spec.rb', 'spec/utilities/settings_utility_spec.rb'
-      copy_file 'seo/robots.text.erb', 'app/views/web/seo/robots.text.erb'
-      copy_file 'seo/sitemap.xml.builder', 'app/views/web/seo/sitemap.xml.builder'
-      copy_file 'seo/settings_utility.rb', 'app/utilities/settings_utility.rb'
+      copy_file 'features/seo/seo_controller.rb', 'app/controllers/web/seo_controller.rb'
+      copy_file 'features/seo/seo_controller_spec.rb', 'spec/controllers/web/seo_controller_spec.rb'
+      copy_file 'features/seo/seo_routing_spec.rb', 'spec/routing/web/seo_routing_spec.rb'
+      copy_file 'features/seo/settings_utility_spec.rb', 'spec/utilities/settings_utility_spec.rb'
+      copy_file 'features/seo/robots.text.erb', 'app/views/web/seo/robots.text.erb'
+      copy_file 'features/seo/sitemap.xml.builder', 'app/views/web/seo/sitemap.xml.builder'
+      copy_file 'features/seo/settings_utility.rb', 'app/utilities/settings_utility.rb'
       copy_file 'routes.rb', 'config/routes.rb', force: true
 
       remove_file 'app/controllers/web/.keep'

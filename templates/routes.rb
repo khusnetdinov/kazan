@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   scope module: :web do
     get '/robots.txt', to: 'seo#robots', as: :robots

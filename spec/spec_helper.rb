@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler/setup'
 
 Dir['./spec/support/**/*.rb'].each { |file| require file }

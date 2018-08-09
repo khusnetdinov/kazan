@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails'
 
 module KazanSpecHelpers
@@ -8,7 +10,7 @@ module KazanSpecHelpers
   end
 
   def remove_temp_project_directory
-    FileUtils.rm_rf(project_path)
+    FileUtils.rm_rf(temp_project_path)
   end
 
   def run_app_generator(arguments = nil)
@@ -23,26 +25,24 @@ module KazanSpecHelpers
   end
 
   def setup_app_dependencies
-    if File.exist?(project_path)
-      Dir.chdir(project_path) do
-        Bundler.with_clean_env do
-          `bundle check || bundle install`
-        end
+    return unless File.exist?(temp_project_path)
+    Dir.chdir(temp_project_path) do
+      Bundler.with_clean_env do
+        `bundle check || bundle install`
       end
     end
   end
 
   def drop_app_database
-    if File.exist?(project_path)
-      Dir.chdir(project_path) do
-        Bundler.with_clean_env do
-          `rake db:drop`
-        end
+    return unless File.exist?(temp_project_path)
+    Dir.chdir(temp_project_path) do
+      Bundler.with_clean_env do
+        `rake db:drop`
       end
     end
   end
 
-  def project_path
+  def temp_project_path
     @temp_project_path ||= Pathname.new("#{temp_path}/#{APP_NAME}")
   end
 
@@ -51,7 +51,7 @@ module KazanSpecHelpers
   end
 
   def load_file(file_name)
-    IO.read("#{project_path}/#{file_name}")
+    IO.read("#{temp_project_path}/#{file_name}")
   end
 
   private
@@ -65,7 +65,6 @@ module KazanSpecHelpers
   end
 
   def root_path
-    File.expand_path('../../../', __FILE__)
+    File.expand_path('../..', __dir__)
   end
 end
-

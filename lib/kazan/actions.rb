@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Kazan
+  # This module configure actions
   module Actions
     def replace_in_file(relative_path, find, replace)
       path = File.join(destination_root, relative_path)
@@ -6,7 +9,7 @@ module Kazan
       unless contents.gsub!(find, replace)
         raise "#{find.inspect} not found in #{relative_path}"
       end
-      File.open(path, "w") { |file| file.write(contents) }
+      File.open(path, 'w') { |file| file.write(contents) }
     end
 
     def configure_action_mailer_host(rails_env, host)
@@ -16,16 +19,18 @@ module Kazan
 
     def configure_application_file(config)
       inject_into_file(
-        "config/application.rb",
+        'config/application.rb',
         "\n\n    #{config}",
-        before: "\n  end")
+        before: "\n  end"
+      )
     end
 
     def configure_environment(rails_env, config)
       inject_into_file(
         "config/environments/#{rails_env}.rb",
         "\n\n  #{config}",
-        before: "\nend")
+        before: "\nend"
+      )
     end
   end
 end
