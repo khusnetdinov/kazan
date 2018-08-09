@@ -44,6 +44,7 @@ module Kazan
       invoke :setup_spring
       invoke :setup_empty_directories
       invoke :setup_seo_controller
+      invoke :setup_mailers_templates
       invoke :setup_irresponsible_modules_reek
       invoke :setup_add_coment_rubocop
       invoke :setup_project_repository
@@ -172,6 +173,11 @@ module Kazan
     def setup_seo_controller
       say 'Setup SeoController'
       build :seo_controller
+    end
+
+    def setup_mailers_templates
+      say 'Setup mailers templates'
+      build :mailers_templates
     end
 
     def setup_irresponsible_modules_reek
