@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.executables = ['kazan']
   spec.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
 
-  spec.add_dependency 'rails', Kazan::RAILS_VERSION
+  spec.add_dependency 'rails', '7.0.0', Kazan::RAILS_VERSION
   spec.add_dependency 'rails-i18n', Kazan::RAILS_I18N_VERSION
 
   spec.add_development_dependency 'rake', '~> 12.3.3'
