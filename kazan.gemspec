@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails', Kazan::RAILS_VERSION
   spec.add_dependency 'rails-i18n', Kazan::RAILS_I18N_VERSION
 
-  spec.add_development_dependency 'rake', '~> 12.3.3'
+  spec.add_development_dependency 'rake', '~> 13.0.6'
   spec.add_development_dependency 'rspec', '~> 3.5'
 end
